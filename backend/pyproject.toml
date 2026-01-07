@@ -6,5 +6,19 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "fastapi[standard]>=0.128.0",
+    "pydantic>=2.12.5",
+    "pylint>=4.0.4",
+    "sqlalchemy>=2.0.45",
     "uvicorn>=0.40.0",
+]
+[tool.pylint.main]
+ignore-paths = [
+    "^.venv/.*$",
+    "^venv/.*$",
+    "^env/.*$",
+    "^__pycache__/.*$",
+    "^.pytest_cache/.*$",
+    "^build/.*$",
+    "^dist/.*$",
+    "^uploads/.*$",
 ]

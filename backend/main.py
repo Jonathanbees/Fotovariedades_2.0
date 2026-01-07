@@ -1,3 +1,4 @@
+""" main api in which i communicate with the frontend """
 from fastapi import FastAPI
 
 app = FastAPI()
