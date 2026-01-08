@@ -1,11 +1,8 @@
-import enum
 from datetime import datetime, timezone
-from typing import List, Optional
-from sqlalchemy import String, ForeignKey, Numeric, DateTime, func
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
-
-class Base(DeclarativeBase):
-    pass
+from typing import List
+from sqlalchemy import ForeignKey, Numeric, DateTime
+from sqlalchemy.orm import Mapped, mapped_column, relationship
+from app.models.base import Base
 
 class Order(Base):
     __tablename__ = "orders"
