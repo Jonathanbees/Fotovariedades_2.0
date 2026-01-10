@@ -13,6 +13,9 @@ dependencies = [
     "pylint>=4.0.4",
     "sqlalchemy>=2.0.45",
     "uvicorn>=0.40.0",
+    "python-dotenv>=1.0.0",
+    "passlib[bcrypt]>=1.7.4",
+    "pydantic-settings>=2.0.0",
 ]
 [tool.pylint.main]
 ignore-paths = [

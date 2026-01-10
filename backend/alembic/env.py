@@ -1,42 +1,39 @@
-import os
-import sys
 from logging.config import fileConfig
-from pathlib import Path
 
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 
 from alembic import context
 
-# Agregar el directorio raíz al path de manera robusta
-# Asumimos que env.py está en <root>/alembic/env.py
-BASE_DIR = Path(__file__).resolve().parent.parent
-sys.path.append(str(BASE_DIR))
+# Importar la configuración y los modelos
+import sys
+import os
 
-# Importar Base desde app.models para asegurar que todos los modelos se carguen
-# y sean visibles para Alembic (para autogenerate)
-from app.models import Base
+# Agregar el directorio padre al path para importar app
+sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
-# this is the Alembic Config object
+from app.core.config import settings
+from app.models.base import Base
+
+# this is the Alembic Config object, which provides
+# access to the values within the .ini file in use.
 config = context.config
 
-# Interpret the config file for Python logging
+# Interpret the config file for Python logging.
+# This line sets up loggers basically.
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-# add your model's MetaData object here for 'autogenerate' support
+# add your model's MetaData object here
+# for 'autogenerate' support
+# from myapp import mymodel
+# target_metadata = mymodel.Base.metadata
 target_metadata = Base.metadata
 
-# Obtener DATABASE_URL desde variable de entorno o docker-compose
-database_url = os.getenv(
-    "DATABASE_URL",
-    "DOCKER_DATABASE_URL"
-)
-
-# Reemplazar asyncpg por psycopg2 para Alembic (no soporta async)
-database_url = database_url.replace("postgresql+asyncpg://", "postgresql://")
-
-config.set_main_option("sqlalchemy.url", database_url)
+# other values from the config, defined by the needs of env.py,
+# can be acquired:
+# my_important_option = config.get_main_option("my_important_option")
+# ... etc.
 
 
 def run_migrations_offline() -> None:
@@ -51,7 +48,8 @@ def run_migrations_offline() -> None:
     script output.
 
     """
-    url = config.get_main_option("sqlalchemy.url")
+    # Usar la URL síncrona desde settings
+    url = settings.SYNC_DATABASE_URL
     context.configure(
         url=url,
         target_metadata=target_metadata,
@@ -70,15 +68,22 @@ def run_migrations_online() -> None:
     and associate a connection with the context.
 
     """
+    # Sobrescribir la URL en la configuración de alembic.ini
+    configuration = config.get_section(config.config_ini_section) or {}
+    configuration["sqlalchemy.url"] = settings.SYNC_DATABASE_URL
+    
     connectable = engine_from_config(
-        config.get_section(config.config_ini_section, {}),
+        configuration,
         prefix="sqlalchemy.",
         poolclass=pool.NullPool,
     )
 
     with connectable.connect() as connection:
         context.configure(
-            connection=connection, target_metadata=target_metadata
+            connection=connection, 
+            target_metadata=target_metadata,
+            compare_type=True,  # Detecta cambios en tipos de columnas
+            compare_server_default=True,  # Detecta cambios en defaults
         )
 
         with context.begin_transaction():

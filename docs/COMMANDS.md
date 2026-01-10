@@ -380,7 +380,8 @@ curl http://localhost:8000/health
 # Frontend
 curl http://localhost:3000
 ```
-
+### Ejecutar script automatizado para migraciones dentro del contenedor de postgress y backend (ya que se usa alembic)
+.\scripts\setup-database.ps1
 ---
 
 ## Referencias

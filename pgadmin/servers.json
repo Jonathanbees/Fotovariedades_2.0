@@ -1,0 +1,14 @@
+﻿{
+  "Servers": {
+    "1": {
+      "Name": "Fotovariedades PostgreSQL",
+      "Group": "Servers",
+      "Host": "postgres",
+      "Port": 5432,
+      "MaintenanceDB": "fotovariedades_db",
+      "Username": "fotovariedades",
+      "SSLMode": "prefer",
+      "PassFile": "/tmp/pgpassfile"
+    }
+  }
+}
