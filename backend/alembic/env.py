@@ -30,7 +30,7 @@ target_metadata = Base.metadata
 # Obtener DATABASE_URL desde variable de entorno o docker-compose
 database_url = os.getenv(
     "DATABASE_URL",
-    "postgresql+asyncpg://fotovariedades:fotovariedades123@postgres:5432/fotovariedades_db"
+    "DOCKER_DATABASE_URL"
 )
 
 # Reemplazar asyncpg por psycopg2 para Alembic (no soporta async)

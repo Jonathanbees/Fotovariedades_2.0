@@ -1,0 +1,138 @@
+# ============================================
+# ARCHIVOS DE ENTORNO Y SECRETOS
+# ============================================
+.env
+.env.local
+.env.production
+.env.*.local
+*.key
+*.pem
+secrets/
+
+# ============================================
+# PYTHON
+# ============================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+*.manifest
+*.spec
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+*.mo
+*.pot
+
+# ============================================
+# VIRTUAL ENVIRONMENTS
+# ============================================
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv
+
+# ============================================
+# IDE / EDITOR
+# ============================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+
+# ============================================
+# DOCKER
+# ============================================
+docker-compose.override.yml
+.dockerignore
+
+# ============================================
+# DATABASE
+# ============================================
+*.db
+*.sqlite
+*.sqlite3
+pgdata/
+postgres_data/
+
+# ============================================
+# LOGS
+# ============================================
+*.log
+logs/
+*.out
+
+# ============================================
+# UPLOADS Y ARCHIVOS TEMPORALES
+# ============================================
+uploads/*
+!uploads/.gitkeep
+temp/
+tmp/
+*.tmp
+
+# ============================================
+# ALEMBIC
+# ============================================
+alembic/versions/*.pyc
+
+# ============================================
+# SYSTEM FILES
+# ============================================
+Thumbs.db
+Desktop.ini
+
+# ============================================
+# BACKUP FILES
+# ============================================
+*.bak
+*.backup
+backup/
+*.sql
+
+# ============================================
+# NODE
+# ============================================
+node_modules/
+package-lock.json
+yarn.lock
+
+# ============================================
+# CERTIFICADOS Y KEYS
+# ============================================
+*.crt
+*.key
+*.pem
+ssl/
+certs/

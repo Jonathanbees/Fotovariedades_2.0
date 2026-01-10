@@ -145,3 +145,5 @@ media/
 # Logs
 logs/
 *.log
+
+db_details.txt
