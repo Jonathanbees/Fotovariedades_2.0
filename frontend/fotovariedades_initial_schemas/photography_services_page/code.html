@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fotovariedades la 68 - Servicios de Fotografía</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#D32F2F", // A vibrant red inspired by one of the flower petals
+                        secondary: "#FBC02D", // A vibrant yellow
+                        "background-light": "#F9FAFB",
+                        "background-dark": "#111827",
+                        "card-light": "#FFFFFF",
+                        "card-dark": "#1F2937",
+                    },
+                    fontFamily: {
+                        display: ["Poppins", "sans-serif"],
+                        body: ["Poppins", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.75rem",
+                    },
+                },
+            },
+        };
+    </script>
+<style>
+        .flower-motif {
+            background-image: radial-gradient(circle at center, #FBC02D 0%, transparent 20%), 
+                              conic-gradient(from 0deg, #E91E63, #9C27B0, #2196F3, #4CAF50, #FFEB3B, #FF9800, #F44336, #E91E63);
+            opacity: 0.05;
+            background-size: 400px 400px;
+            background-repeat: repeat;
+        }
+        .dark .flower-motif {
+            opacity: 0.1;
+        }
+    </style>
+</head>
+<body class="font-body bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-100 transition-colors duration-300">
+<div class="fixed inset-0 pointer-events-none flower-motif z-0"></div>
+<nav class="relative z-10 w-full bg-card-light/90 dark:bg-card-dark/90 backdrop-blur-md shadow-sm sticky top-0">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-20">
+<div class="flex-shrink-0 flex items-center gap-3">
+<div class="relative w-10 h-10 flex items-center justify-center">
+<div class="absolute inset-0 rounded-full bg-gradient-to-tr from-purple-500 via-red-500 to-yellow-500 animate-spin-slow opacity-80 blur-sm"></div>
+<span class="material-icons text-white relative z-10">camera</span>
+</div>
+<span class="font-display font-bold text-xl tracking-tight text-gray-900 dark:text-white">Fotovariedades la 68</span>
+</div>
+<div class="hidden md:flex space-x-8 items-center">
+<a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary font-medium transition" href="#">Inicio</a>
+<a class="text-primary dark:text-primary font-bold transition" href="#">Servicios</a>
+<a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary font-medium transition" href="#">Papelería</a>
+<a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary font-medium transition" href="#">Dulcería</a>
+<a class="bg-primary text-white px-5 py-2 rounded-full font-medium hover:bg-red-700 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5" href="mailto:fotovariedadesla68@gmail.com">Contáctanos</a>
+</div>
+<div class="md:hidden flex items-center">
+<button class="text-gray-600 dark:text-gray-300 hover:text-gray-900 focus:outline-none">
+<span class="material-icons">menu</span>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<header class="relative z-10 pt-16 pb-24 lg:pt-24 lg:pb-32 overflow-hidden">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
+<span class="inline-block py-1 px-3 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-200 text-sm font-semibold mb-6 uppercase tracking-wider">
+                Expertos en Imagen y Documentos
+            </span>
+<h1 class="text-4xl md:text-6xl font-display font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+                Capturamos tus <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">Mejores Momentos</span> <br/> y Gestionamos tus Documentos
+            </h1>
+<p class="mt-4 max-w-2xl mx-auto text-xl text-gray-600 dark:text-gray-300">
+                Desde fotos para documentos oficiales hasta estudios profesionales. Tu centro integral de servicios en la 68.
+            </p>
+<div class="mt-10 flex justify-center gap-4 flex-wrap">
+<a class="px-8 py-4 bg-primary text-white text-lg font-semibold rounded-lg shadow-lg hover:bg-red-700 hover:shadow-xl transition transform hover:-translate-y-1 flex items-center gap-2" href="#services">
+<span class="material-icons">photo_camera</span>
+                    Ver Servicios
+                </a>
+<a class="px-8 py-4 bg-green-500 text-white text-lg font-semibold rounded-lg shadow-lg hover:bg-green-600 hover:shadow-xl transition transform hover:-translate-y-1 flex items-center gap-2" href="https://wa.me/573207277232">
+<svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg>
+                    WhatsApp 320 727 72 32
+                </a>
+</div>
+</div>
+</header>
+<section class="relative z-10 py-16 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800" id="services">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-display font-bold text-gray-900 dark:text-white mb-4">Nuestros Servicios</h2>
+<div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+<div class="group relative bg-card-light dark:bg-card-dark rounded-2xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700 transition hover:shadow-2xl">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition">
+<span class="material-icons text-9xl text-blue-500">badge</span>
+</div>
+<div class="p-8">
+<div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center mb-6 text-blue-600 dark:text-blue-400">
+<span class="material-icons text-3xl">assignment_ind</span>
+</div>
+<h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">Fotos para Documentos</h3>
+<p class="text-gray-600 dark:text-gray-400 mb-6">
+                            Fotografías biométricas de alta calidad para pasaporte, cédula, visa y carnés. Fondo blanco o azul según requerimiento.
+                        </p>
+<ul class="space-y-2 mb-8 text-sm text-gray-600 dark:text-gray-300">
+<li class="flex items-center gap-2">
+<span class="material-icons text-green-500 text-sm">check_circle</span>
+                                Entrega inmediata (10-15 min)
+                            </li>
+<li class="flex items-center gap-2">
+<span class="material-icons text-green-500 text-sm">check_circle</span>
+                                Cumple con normativas oficiales
+                            </li>
+<li class="flex items-center gap-2">
+<span class="material-icons text-green-500 text-sm">check_circle</span>
+                                Retoque digital básico incluido
+                            </li>
+</ul>
+<button class="w-full py-3 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white font-semibold rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600 transition">
+                            Consultar Precio
+                        </button>
+</div>
+</div>
+<div class="group relative bg-card-light dark:bg-card-dark rounded-2xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700 transition hover:shadow-2xl">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition">
+<span class="material-icons text-9xl text-purple-500">camera_enhance</span>
+</div>
+<div class="p-8">
+<div class="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-2xl flex items-center justify-center mb-6 text-purple-600 dark:text-purple-400">
+<span class="material-icons text-3xl">portrait</span>
+</div>
+<h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">Fotoestudios</h3>
+<p class="text-gray-600 dark:text-gray-400 mb-6">
+                            Sesiones de estudio profesionales para perfiles profesionales, redes sociales o recuerdos familiares.
+                        </p>
+<ul class="space-y-2 mb-8 text-sm text-gray-600 dark:text-gray-300">
+<li class="flex items-center gap-2">
+<span class="material-icons text-green-500 text-sm">check_circle</span>
+                                Iluminación de estudio profesional
+                            </li>
+<li class="flex items-center gap-2">
+<span class="material-icons text-green-500 text-sm">check_circle</span>
+                                Edición y retoque avanzado
+                            </li>
+<li class="flex items-center gap-2">
+<span class="material-icons text-green-500 text-sm">check_circle</span>
+                                Entrega digital e impresa
+                            </li>
+</ul>
+<button class="w-full py-3 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition shadow-md">
+                            Reservar Sesión
+                        </button>
+</div>
+</div>
+</div>
+<h3 class="text-xl font-bold text-gray-800 dark:text-gray-200 mb-6 border-l-4 border-primary pl-4">Otros Servicios de Oficina</h3>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md transition text-center">
+<span class="material-icons text-4xl text-orange-500 mb-3">layers</span>
+<h4 class="font-semibold text-gray-900 dark:text-white">Plastificado</h4>
+<p class="text-xs text-gray-500 mt-2">Protege tus documentos</p>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md transition text-center">
+<span class="material-icons text-4xl text-teal-500 mb-3">menu_book</span>
+<h4 class="font-semibold text-gray-900 dark:text-white">Argollado</h4>
+<p class="text-xs text-gray-500 mt-2">Presentaciones y libros</p>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md transition text-center">
+<span class="material-icons text-4xl text-indigo-500 mb-3">print</span>
+<h4 class="font-semibold text-gray-900 dark:text-white">Impresión Láser</h4>
+<p class="text-xs text-gray-500 mt-2">Alta definición</p>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md transition text-center">
+<span class="material-icons text-4xl text-gray-500 mb-3">document_scanner</span>
+<h4 class="font-semibold text-gray-900 dark:text-white">Escáner</h4>
+<p class="text-xs text-gray-500 mt-2">Digitalización rápida</p>
+</div>
+</div>
+</div>
+</section>
+<section class="relative py-12 bg-gray-900 text-white overflow-hidden">
+<div class="absolute top-0 left-0 w-64 h-64 bg-pink-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+<div class="absolute top-0 right-0 w-64 h-64 bg-yellow-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-8">
+<div>
+<h2 class="text-2xl font-bold mb-2">¿Necesitas imprimir o tomarte una foto?</h2>
+<p class="text-gray-300">Visítanos hoy mismo. Servicio rápido y amable.</p>
+<div class="mt-4 flex flex-col sm:flex-row gap-4 text-sm">
+<div class="flex items-center gap-2 justify-center md:justify-start">
+<span class="material-icons text-primary">email</span>
+<span>fotovariedadesla68@gmail.com</span>
+</div>
+</div>
+</div>
+<div class="flex-shrink-0">
+<a class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-gray-900 bg-white hover:bg-gray-100 transition shadow-lg" href="https://wa.me/573207277232">
+<span class="material-icons mr-2 text-green-600">whatsapp</span>
+                    Escribir al WhatsApp
+                </a>
+</div>
+</div>
+</section>
+<footer class="bg-background-light dark:bg-black py-8 border-t border-gray-200 dark:border-gray-800 relative z-10">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+<div class="mb-4 md:mb-0">
+<span class="text-lg font-bold text-gray-900 dark:text-white">Fotovariedades la 68</span>
+<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">© 2023 Todos los derechos reservados.</p>
+</div>
+<div class="flex space-x-6">
+<a class="text-gray-400 hover:text-gray-500 dark:hover:text-gray-300" href="#">
+<span class="sr-only">Facebook</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+<path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+</svg>
+</a>
+<a class="text-gray-400 hover:text-gray-500 dark:hover:text-gray-300" href="#">
+<span class="sr-only">Instagram</span>
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+<path clip-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.468.99c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" fill-rule="evenodd"></path>
+</svg>
+</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple script to toggle manual dark mode if needed, 
+        // though Tailwind is configured for 'class', we assume user system preference
+        // or a future toggle button implementation. 
+        // For now, it respects the user's system preference on load if we added the JS for it,
+        // but let's stick to the request requirements.
+    </script>
+
+</body></html>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fotovariedades Admin Dashboard</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2bee6c",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#111813", // Matched to the dark aesthetic provided
+                        "surface-dark": "#1d2a21", // Slightly lighter for cards
+                        "surface-highlight": "#28392e", // For hovers/borders
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.375rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for dark theme */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111813; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #28392e; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3e5244; 
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display overflow-hidden selection:bg-primary selection:text-black">
+<div class="flex h-screen w-full">
+<!-- Sidebar -->
+<aside class="w-64 flex-shrink-0 flex flex-col border-r border-surface-highlight bg-background-dark hidden md:flex">
+<div class="p-6">
+<div class="flex flex-col">
+<h1 class="text-white text-xl font-bold tracking-tight">Fotovariedades</h1>
+<p class="text-[#9db9a6] text-xs font-medium tracking-wide mt-1 uppercase">Admin Panel</p>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-2 px-4 overflow-y-auto">
+<!-- Dashboard -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/20 text-primary border border-primary/10" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<!-- Inventory -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:bg-surface-highlight hover:text-white transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">inventory_2</span>
+<span class="text-sm font-medium">Inventory</span>
+</a>
+<!-- Orders -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:bg-surface-highlight hover:text-white transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">shopping_bag</span>
+<span class="text-sm font-medium">Orders</span>
+</a>
+<!-- Photo Bookings -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:bg-surface-highlight hover:text-white transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">camera_alt</span>
+<span class="text-sm font-medium">Photography</span>
+</a>
+<!-- Analytics -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:bg-surface-highlight hover:text-white transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">bar_chart</span>
+<span class="text-sm font-medium">Analytics</span>
+</a>
+<div class="my-2 border-t border-surface-highlight"></div>
+<!-- Settings -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:bg-surface-highlight hover:text-white transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="p-4 border-t border-surface-highlight">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:text-white hover:bg-red-500/10 hover:text-red-400 transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">logout</span>
+<span class="text-sm font-medium">Log Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col min-w-0 bg-background-light dark:bg-background-dark">
+<!-- Top Navbar -->
+<header class="flex items-center justify-between border-b border-surface-highlight bg-background-dark/50 backdrop-blur-md px-6 py-4 sticky top-0 z-30">
+<div class="flex items-center gap-4">
+<button class="md:hidden text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h2 class="text-white text-lg font-bold">Dashboard Overview</h2>
+</div>
+<div class="flex items-center gap-6">
+<!-- Search -->
+<div class="hidden md:flex items-center bg-surface-highlight rounded-lg px-3 py-2 w-64 border border-transparent focus-within:border-primary/50 transition-all">
+<span class="material-symbols-outlined text-gray-400 text-[20px]">search</span>
+<input class="bg-transparent border-none text-sm text-white placeholder-gray-400 focus:ring-0 w-full ml-2 p-0 h-5" placeholder="Search orders, items..." type="text"/>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-3">
+<button class="relative p-2 rounded-lg bg-surface-highlight text-white hover:bg-surface-highlight/80 transition-colors">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full border-2 border-surface-highlight"></span>
+</button>
+<div class="w-px h-8 bg-surface-highlight mx-1"></div>
+<div class="flex items-center gap-3 cursor-pointer">
+<div class="bg-cover bg-center h-9 w-9 rounded-full border border-surface-highlight" data-alt="Admin user profile picture" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAt2V0P5hp2FIugCTYbYxaVxxW-6SwTw2YRzW6PsR--Qvh1PprdIzfA3Zdgw7Y2IOu6RZd54ZsVQUpOLAATIArBfLS6wfCAhWqHGYwjwHP0DCU4jmJM-wb75-ljfdgE_ejWxzmrZtPfZFKiThSo7As7UKD6u737bza7luDpzGvDFeyAoS-ZKgxQsCBEFsn6iH1o3R8meUrzXIHpJAGBUwvzRSdGI0fgh6HAXGe8D0nInjrkcjabxSMDUcgPaXJCbp4KoVTFnST20zw');"></div>
+</div>
+</div>
+</div>
+</header>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto p-6 md:p-8">
+<div class="max-w-7xl mx-auto space-y-8">
+<!-- Stats Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- Revenue -->
+<div class="bg-surface-dark p-6 rounded-xl border border-surface-highlight flex flex-col gap-4 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-primary">payments</span>
+</div>
+<div class="flex justify-between items-start z-10">
+<div>
+<p class="text-[#9db9a6] text-sm font-medium">Total Revenue</p>
+<h3 class="text-white text-3xl font-bold mt-1">$12,450</h3>
+</div>
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">attach_money</span>
+</div>
+<div class="flex items-center gap-2 mt-auto z-10">
+<span class="bg-primary/20 text-primary text-xs font-bold px-2 py-0.5 rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> 12%
+                                </span>
+<span class="text-gray-400 text-xs">vs last week</span>
+</div>
+</div>
+<!-- Orders -->
+<div class="bg-surface-dark p-6 rounded-xl border border-surface-highlight flex flex-col gap-4 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-blue-400">local_mall</span>
+</div>
+<div class="flex justify-between items-start z-10">
+<div>
+<p class="text-[#9db9a6] text-sm font-medium">Orders Today</p>
+<h3 class="text-white text-3xl font-bold mt-1">45</h3>
+</div>
+<span class="material-symbols-outlined text-white bg-surface-highlight p-2 rounded-lg">shopping_basket</span>
+</div>
+<div class="flex items-center gap-2 mt-auto z-10">
+<span class="text-gray-400 text-xs">Processing now</span>
+</div>
+</div>
+<!-- Low Stock -->
+<div class="bg-surface-dark p-6 rounded-xl border border-orange-500/20 flex flex-col gap-4 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-orange-500">warning</span>
+</div>
+<div class="flex justify-between items-start z-10">
+<div>
+<p class="text-[#9db9a6] text-sm font-medium">Low Stock Alerts</p>
+<h3 class="text-white text-3xl font-bold mt-1">8 Items</h3>
+</div>
+<span class="material-symbols-outlined text-orange-400 bg-orange-400/10 p-2 rounded-lg">priority_high</span>
+</div>
+<div class="flex items-center gap-2 mt-auto z-10">
+<span class="text-orange-400 text-xs font-bold cursor-pointer hover:underline flex items-center gap-1">
+                                    View Inventory <span class="material-symbols-outlined text-[12px]">arrow_forward</span>
+</span>
+</div>
+</div>
+</div>
+<!-- Charts Section -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Line Chart -->
+<div class="lg:col-span-2 bg-surface-dark rounded-xl border border-surface-highlight p-6">
+<div class="flex justify-between items-center mb-6">
+<div>
+<h3 class="text-white font-semibold text-lg">Sales Trends</h3>
+<p class="text-[#9db9a6] text-sm">Revenue over the last 30 days</p>
+</div>
+<div class="flex gap-2">
+<select class="bg-surface-highlight border-none text-white text-xs rounded-lg py-1 px-3 focus:ring-1 focus:ring-primary">
+<option>Last 30 Days</option>
+<option>Last 7 Days</option>
+<option>This Year</option>
+</select>
+</div>
+</div>
+<!-- Custom Chart Drawing using SVG -->
+<div class="w-full h-64 relative">
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 100 40">
+<!-- Grid lines -->
+<line stroke="#28392e" stroke-width="0.2" x1="0" x2="100" y1="0" y2="0"></line>
+<line stroke="#28392e" stroke-width="0.2" x1="0" x2="100" y1="10" y2="10"></line>
+<line stroke="#28392e" stroke-width="0.2" x1="0" x2="100" y1="20" y2="20"></line>
+<line stroke="#28392e" stroke-width="0.2" x1="0" x2="100" y1="30" y2="30"></line>
+<line stroke="#28392e" stroke-width="0.2" x1="0" x2="100" y1="40" y2="40"></line>
+<!-- Area Fill -->
+<path d="M0,35 Q10,32 20,25 T40,20 T60,28 T80,15 T100,10 V40 H0 Z" fill="url(#gradient)" opacity="0.2"></path>
+<!-- Line -->
+<path d="M0,35 Q10,32 20,25 T40,20 T60,28 T80,15 T100,10" fill="none" stroke="#2bee6c" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.6"></path>
+<!-- Active Point -->
+<circle cx="80" cy="15" fill="#111813" r="1.5" stroke="#2bee6c" stroke-width="0.5"></circle>
+<!-- Gradient Def -->
+<defs>
+<lineargradient id="gradient" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" style="stop-color:#2bee6c;stop-opacity:0.5"></stop>
+<stop offset="100%" style="stop-color:#2bee6c;stop-opacity:0"></stop>
+</lineargradient>
+</defs>
+</svg>
+<!-- X Axis Labels -->
+<div class="flex justify-between text-xs text-[#9db9a6] mt-2 font-medium">
+<span>Week 1</span>
+<span>Week 2</span>
+<span>Week 3</span>
+<span>Week 4</span>
+</div>
+</div>
+</div>
+<!-- Top Products Bar Chart -->
+<div class="bg-surface-dark rounded-xl border border-surface-highlight p-6 flex flex-col">
+<h3 class="text-white font-semibold text-lg mb-1">Top Selling Products</h3>
+<p class="text-[#9db9a6] text-sm mb-6">Across all categories</p>
+<div class="flex flex-col gap-5 flex-1 justify-center">
+<!-- Item 1 -->
+<div class="group">
+<div class="flex justify-between text-sm mb-1">
+<span class="text-white font-medium">A4 Paper Reams</span>
+<span class="text-[#9db9a6]">1.2k sold</span>
+</div>
+<div class="w-full bg-surface-highlight rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="group">
+<div class="flex justify-between text-sm mb-1">
+<span class="text-white font-medium">Passport Photos</span>
+<span class="text-[#9db9a6]">850 sold</span>
+</div>
+<div class="w-full bg-surface-highlight rounded-full h-2">
+<div class="bg-primary h-2 rounded-full opacity-80" style="width: 65%"></div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="group">
+<div class="flex justify-between text-sm mb-1">
+<span class="text-white font-medium">Chocolate Boxes</span>
+<span class="text-[#9db9a6]">620 sold</span>
+</div>
+<div class="w-full bg-surface-highlight rounded-full h-2">
+<div class="bg-primary h-2 rounded-full opacity-60" style="width: 45%"></div>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="group">
+<div class="flex justify-between text-sm mb-1">
+<span class="text-white font-medium">Notebooks</span>
+<span class="text-[#9db9a6]">400 sold</span>
+</div>
+<div class="w-full bg-surface-highlight rounded-full h-2">
+<div class="bg-primary h-2 rounded-full opacity-40" style="width: 30%"></div>
+</div>
+</div>
+</div>
+<button class="mt-6 w-full py-2 text-sm text-primary font-medium hover:bg-primary/10 rounded-lg transition-colors">
+                                View Full Report
+                            </button>
+</div>
+</div>
+<!-- Recent Orders Table -->
+<div class="bg-surface-dark rounded-xl border border-surface-highlight overflow-hidden">
+<div class="p-6 border-b border-surface-highlight flex justify-between items-center">
+<h3 class="text-white font-semibold text-lg">Recent Orders</h3>
+<button class="text-[#9db9a6] hover:text-white text-sm font-medium transition-colors">View All</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left text-sm text-[#9db9a6]">
+<thead class="bg-surface-highlight text-xs uppercase font-semibold text-white">
+<tr>
+<th class="px-6 py-4">Order ID</th>
+<th class="px-6 py-4">Customer</th>
+<th class="px-6 py-4">Product Type</th>
+<th class="px-6 py-4">Amount</th>
+<th class="px-6 py-4">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-highlight">
+<tr class="hover:bg-surface-highlight/50 transition-colors">
+<td class="px-6 py-4 font-medium text-white">#ORD-0092</td>
+<td class="px-6 py-4">Maria Gonzalez</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-base">camera</span> Photography
+                                            </div>
+</td>
+<td class="px-6 py-4 text-white font-medium">$150.00</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-green-500/10 text-green-400">
+<span class="w-1.5 h-1.5 rounded-full bg-green-400"></span>
+                                                Completed
+                                            </span>
+</td>
+</tr>
+<tr class="hover:bg-surface-highlight/50 transition-colors">
+<td class="px-6 py-4 font-medium text-white">#ORD-0091</td>
+<td class="px-6 py-4">Carlos Ruiz</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-base">edit_note</span> Stationery
+                                            </div>
+</td>
+<td class="px-6 py-4 text-white font-medium">$42.50</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-blue-500/10 text-blue-400">
+<span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+                                                Processing
+                                            </span>
+</td>
+</tr>
+<tr class="hover:bg-surface-highlight/50 transition-colors">
+<td class="px-6 py-4 font-medium text-white">#ORD-0090</td>
+<td class="px-6 py-4">Ana Silva</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-base">cake</span> Sweets
+                                            </div>
+</td>
+<td class="px-6 py-4 text-white font-medium">$12.00</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-green-500/10 text-green-400">
+<span class="w-1.5 h-1.5 rounded-full bg-green-400"></span>
+                                                Completed
+                                            </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

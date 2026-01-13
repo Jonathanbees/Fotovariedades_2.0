@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Inventory Management - Fotovariedades</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2bee6c",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                        "surface-dark": "#162b1d",
+                        "surface-darker": "#0d1a11",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for dark theme matching */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #102216; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2bee6c; 
+            border-radius: 4px;
+            opacity: 0.3;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #25c95b; 
+        }
+        
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased overflow-hidden">
+<div class="flex h-screen w-full flex-row overflow-hidden">
+<!-- Side Navigation -->
+<aside class="flex w-64 flex-col border-r border-white/10 bg-surface-darker hidden md:flex">
+<div class="flex h-full flex-col justify-between p-4">
+<div class="flex flex-col gap-6">
+<!-- Brand -->
+<div class="flex items-center gap-3 px-2 py-2">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border border-white/10 shadow-lg" data-alt="Abstract colorful gradient representing creative photography" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDWSC3xpY6NsLQQ04nutZrKEsVJ0nFQoxmJaTmy4quuAmPk5zcHty8FDEQD3ihwPHjH_3-w9dHOsdKPfXVlrPq1kUUMD9SsyIWV5fBBaRMWBk6EY9ZSXSOvdfV0rj7JqUQ1a1DHliahy3F0ykTF5oNUDeCzJSBSyrJRYVlaIUb-Jkv3geUotN1RiUTONyALHr_9dLzo4YkIt-055KFeNN7siiayeCiacTVps3XD6vRxe8PbNQs3NrY8wF42XYgRLoLlKQBuCghnP54");'>
+</div>
+<div class="flex flex-col">
+<h1 class="text-white text-base font-bold leading-tight tracking-wide">Fotovariedades</h1>
+<p class="text-gray-400 text-xs font-normal">Admin Panel</p>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors group" href="#">
+<span class="material-symbols-outlined text-gray-400 group-hover:text-primary transition-colors">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary border border-primary/20" href="#">
+<span class="material-symbols-outlined filled">inventory_2</span>
+<span class="text-sm font-bold">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors group" href="#">
+<span class="material-symbols-outlined text-gray-400 group-hover:text-primary transition-colors">shopping_cart</span>
+<span class="text-sm font-medium">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors group" href="#">
+<span class="material-symbols-outlined text-gray-400 group-hover:text-primary transition-colors">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+</div>
+<!-- User Profile / Bottom Actions -->
+<div class="flex items-center gap-3 px-3 py-3 border-t border-white/10 mt-auto">
+<div class="size-8 rounded-full bg-gradient-to-tr from-primary to-emerald-600 flex items-center justify-center text-background-dark font-bold text-xs">
+                        JD
+                    </div>
+<div class="flex flex-col">
+<span class="text-sm font-medium text-white">Jane Doe</span>
+<span class="text-xs text-gray-400">Manager</span>
+</div>
+<button class="ml-auto text-gray-400 hover:text-white">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex flex-1 flex-col h-full overflow-hidden bg-background-light dark:bg-background-dark relative">
+<!-- Mobile Header (Visible on small screens) -->
+<div class="md:hidden flex items-center justify-between p-4 border-b border-white/10 bg-surface-dark">
+<div class="flex items-center gap-2">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-8" data-alt="Abstract colorful gradient" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBK4kGvDPnBR7KfbiioG2NYRL2N23XbGyE0UKW-6cfjXrOdkmwcD4tkJWfl_9UwBwy_7ygvbR-M1ghkBvoPZycVz6Jre2LxAETMXxcmy2gM7DdkC7oLycNaKBC1FPrJwcJvhwnsAOQQ0U0D8l0LjRmemDDi9XO7oOvTY73yLjDdHfrShsSRlLPgG3-VMLqVW2C5Hrn728PKHuW4LkEVTY23WFMWUgohXjvh_s2y5u78GbTDoYEJSPhMqqJDCvjrXeLY6wP55TOMT3w");'>
+</div>
+<span class="font-bold text-white">Fotovariedades</span>
+</div>
+<button class="text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto p-4 md:p-8 lg:px-12">
+<div class="max-w-[1200px] mx-auto flex flex-col gap-6">
+<!-- Breadcrumbs -->
+<div class="flex items-center gap-2 text-sm">
+<a class="text-gray-400 hover:text-primary transition-colors" href="#">Home</a>
+<span class="text-gray-600">/</span>
+<span class="text-white font-medium">Inventory</span>
+</div>
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div class="flex flex-col gap-1">
+<h2 class="text-white text-3xl md:text-4xl font-black tracking-tight">Inventory Management</h2>
+<p class="text-gray-400 text-base font-normal">Manage stationery, photo supplies, and sweets inventory.</p>
+</div>
+<button class="flex shrink-0 items-center justify-center gap-2 rounded-lg bg-primary hover:bg-primary/90 text-background-dark h-11 px-6 text-sm font-bold shadow-lg shadow-primary/20 transition-all hover:scale-[1.02]">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span>Add New Product</span>
+</button>
+</div>
+<!-- Filters & Search Toolbar -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center bg-surface-dark p-4 rounded-xl border border-white/5">
+<!-- Search -->
+<div class="md:col-span-5 lg:col-span-6 relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+<span class="material-symbols-outlined">search</span>
+</span>
+<input class="w-full bg-background-dark border border-white/10 rounded-lg pl-10 pr-4 py-2.5 text-white placeholder:text-gray-500 focus:ring-1 focus:ring-primary focus:border-primary focus:outline-none transition-all" placeholder="Search products by name, sku..." type="text"/>
+</div>
+<!-- Category Filter -->
+<div class="md:col-span-3 lg:col-span-3">
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
+<span class="material-symbols-outlined text-[20px]">category</span>
+</span>
+<select class="w-full bg-background-dark border border-white/10 rounded-lg pl-10 pr-8 py-2.5 text-white focus:ring-1 focus:ring-primary focus:border-primary focus:outline-none appearance-none cursor-pointer">
+<option disabled="" selected="" value="">All Categories</option>
+<option value="stationery">Stationery</option>
+<option value="photo">Photo Services</option>
+<option value="sweets">Sweets</option>
+</select>
+<span class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
+<span class="material-symbols-outlined text-[20px]">expand_more</span>
+</span>
+</div>
+</div>
+<!-- Status Filter -->
+<div class="md:col-span-4 lg:col-span-3">
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
+<span class="material-symbols-outlined text-[20px]">filter_alt</span>
+</span>
+<select class="w-full bg-background-dark border border-white/10 rounded-lg pl-10 pr-8 py-2.5 text-white focus:ring-1 focus:ring-primary focus:border-primary focus:outline-none appearance-none cursor-pointer">
+<option disabled="" selected="" value="">Filter by Status</option>
+<option value="in_stock">In Stock</option>
+<option value="low_stock">Low Stock</option>
+<option value="out_of_stock">Out of Stock</option>
+</select>
+<span class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
+<span class="material-symbols-outlined text-[20px]">expand_more</span>
+</span>
+</div>
+</div>
+</div>
+<!-- Main Data Table -->
+<div class="bg-surface-dark rounded-xl border border-white/10 overflow-hidden shadow-xl">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-white/5 border-b border-white/10">
+<th class="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-gray-400">Product Name</th>
+<th class="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-gray-400">Category</th>
+<th class="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-gray-400">Stock Level</th>
+<th class="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-gray-400">Price</th>
+<th class="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-gray-400">Status</th>
+<th class="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-gray-400 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<!-- Row 1 -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="bg-white/10 rounded-md size-10 flex items-center justify-center text-gray-400">
+<span class="material-symbols-outlined">image</span>
+</div>
+<div>
+<div class="text-sm font-medium text-white">Fuji Film 200</div>
+<div class="text-xs text-gray-500">SKU: FJ-200-36</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center rounded-md bg-purple-400/10 px-2 py-1 text-xs font-medium text-purple-400 ring-1 ring-inset ring-purple-400/20">Photo</span>
+</td>
+<td class="px-6 py-4 text-sm text-gray-300">150 units</td>
+<td class="px-6 py-4 text-sm font-medium text-white">$12.50</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary ring-1 ring-inset ring-primary/20">
+                                                In Stock
+                                            </span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2 opacity-60 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 text-gray-400 hover:text-white hover:bg-white/10 rounded-lg transition-colors" title="Edit">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1.5 text-gray-400 hover:text-red-400 hover:bg-red-400/10 rounded-lg transition-colors" title="Delete">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="bg-white/10 rounded-md size-10 flex items-center justify-center text-gray-400">
+<span class="material-symbols-outlined">cookie</span>
+</div>
+<div>
+<div class="text-sm font-medium text-white">Gummy Bears (pack)</div>
+<div class="text-xs text-gray-500">SKU: SW-GB-100</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center rounded-md bg-pink-400/10 px-2 py-1 text-xs font-medium text-pink-400 ring-1 ring-inset ring-pink-400/20">Sweets</span>
+</td>
+<td class="px-6 py-4 text-sm text-gray-300">5 units</td>
+<td class="px-6 py-4 text-sm font-medium text-white">$2.00</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center rounded-full bg-yellow-500/10 px-2.5 py-0.5 text-xs font-medium text-yellow-500 ring-1 ring-inset ring-yellow-500/20">
+                                                Low Stock
+                                            </span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2 opacity-60 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 text-gray-400 hover:text-white hover:bg-white/10 rounded-lg transition-colors" title="Edit">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1.5 text-gray-400 hover:text-red-400 hover:bg-red-400/10 rounded-lg transition-colors" title="Delete">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="bg-white/10 rounded-md size-10 flex items-center justify-center text-gray-400">
+<span class="material-symbols-outlined">book</span>
+</div>
+<div>
+<div class="text-sm font-medium text-white">A4 Spiral Notebook</div>
+<div class="text-xs text-gray-500">SKU: ST-NB-A4</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center rounded-md bg-blue-400/10 px-2 py-1 text-xs font-medium text-blue-400 ring-1 ring-inset ring-blue-400/20">Stationery</span>
+</td>
+<td class="px-6 py-4 text-sm text-gray-300">45 units</td>
+<td class="px-6 py-4 text-sm font-medium text-white">$5.50</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary ring-1 ring-inset ring-primary/20">
+                                                In Stock
+                                            </span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2 opacity-60 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 text-gray-400 hover:text-white hover:bg-white/10 rounded-lg transition-colors" title="Edit">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1.5 text-gray-400 hover:text-red-400 hover:bg-red-400/10 rounded-lg transition-colors" title="Delete">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="bg-white/10 rounded-md size-10 flex items-center justify-center text-gray-400">
+<span class="material-symbols-outlined">edit_note</span>
+</div>
+<div>
+<div class="text-sm font-medium text-white">Gel Pen Set (12 Colors)</div>
+<div class="text-xs text-gray-500">SKU: ST-GP-12</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center rounded-md bg-blue-400/10 px-2 py-1 text-xs font-medium text-blue-400 ring-1 ring-inset ring-blue-400/20">Stationery</span>
+</td>
+<td class="px-6 py-4 text-sm text-gray-300">0 units</td>
+<td class="px-6 py-4 text-sm font-medium text-white">$8.00</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center rounded-full bg-red-500/10 px-2.5 py-0.5 text-xs font-medium text-red-500 ring-1 ring-inset ring-red-500/20">
+                                                Out of Stock
+                                            </span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2 opacity-60 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 text-gray-400 hover:text-white hover:bg-white/10 rounded-lg transition-colors" title="Edit">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1.5 text-gray-400 hover:text-red-400 hover:bg-red-400/10 rounded-lg transition-colors" title="Delete">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="bg-white/10 rounded-md size-10 flex items-center justify-center text-gray-400">
+<span class="material-symbols-outlined">camera</span>
+</div>
+<div>
+<div class="text-sm font-medium text-white">Instax Mini 12</div>
+<div class="text-xs text-gray-500">SKU: FJ-IM-12</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center rounded-md bg-purple-400/10 px-2 py-1 text-xs font-medium text-purple-400 ring-1 ring-inset ring-purple-400/20">Photo</span>
+</td>
+<td class="px-6 py-4 text-sm text-gray-300">12 units</td>
+<td class="px-6 py-4 text-sm font-medium text-white">$65.00</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary ring-1 ring-inset ring-primary/20">
+                                                In Stock
+                                            </span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2 opacity-60 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 text-gray-400 hover:text-white hover:bg-white/10 rounded-lg transition-colors" title="Edit">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1.5 text-gray-400 hover:text-red-400 hover:bg-red-400/10 rounded-lg transition-colors" title="Delete">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 6 -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="bg-white/10 rounded-md size-10 flex items-center justify-center text-gray-400">
+<span class="material-symbols-outlined">print</span>
+</div>
+<div>
+<div class="text-sm font-medium text-white">Photo Paper (Glossy 4x6)</div>
+<div class="text-xs text-gray-500">SKU: PP-GL-46</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center rounded-md bg-purple-400/10 px-2 py-1 text-xs font-medium text-purple-400 ring-1 ring-inset ring-purple-400/20">Photo</span>
+</td>
+<td class="px-6 py-4 text-sm text-gray-300">8 units</td>
+<td class="px-6 py-4 text-sm font-medium text-white">$14.00</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center rounded-full bg-yellow-500/10 px-2.5 py-0.5 text-xs font-medium text-yellow-500 ring-1 ring-inset ring-yellow-500/20">
+                                                Low Stock
+                                            </span>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2 opacity-60 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 text-gray-400 hover:text-white hover:bg-white/10 rounded-lg transition-colors" title="Edit">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1.5 text-gray-400 hover:text-red-400 hover:bg-red-400/10 rounded-lg transition-colors" title="Delete">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="flex items-center justify-between px-6 py-4 border-t border-white/10 bg-surface-darker/50">
+<div class="text-sm text-gray-400">
+                                Showing <span class="text-white font-medium">1</span> to <span class="text-white font-medium">6</span> of <span class="text-white font-medium">24</span> results
+                            </div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 text-sm font-medium text-gray-400 hover:text-white hover:bg-white/10 rounded-md transition-colors disabled:opacity-50" disabled="">
+                                    Previous
+                                </button>
+<button class="px-3 py-1.5 text-sm font-medium text-background-dark bg-primary hover:bg-primary/90 rounded-md transition-colors">
+                                    1
+                                </button>
+<button class="px-3 py-1.5 text-sm font-medium text-gray-400 hover:text-white hover:bg-white/10 rounded-md transition-colors">
+                                    2
+                                </button>
+<button class="px-3 py-1.5 text-sm font-medium text-gray-400 hover:text-white hover:bg-white/10 rounded-md transition-colors">
+                                    3
+                                </button>
+<button class="px-3 py-1.5 text-sm font-medium text-gray-400 hover:text-white hover:bg-white/10 rounded-md transition-colors">
+                                    Next
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
