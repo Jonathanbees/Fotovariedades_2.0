@@ -1,105 +1,70 @@
-from datetime import datetime, timedelta
-from typing import List, Union
+"""
+Módulo de seguridad
+Maneja hashing de contraseñas y creación de tokens JWT
+"""
+from datetime import datetime, timedelta, timezone
+from typing import Optional, Dict, Any
+import bcrypt
+from jose import jwt
 
-from fastapi import HTTPException, status
-from jose import JWTError, jwt
-from passlib.context import CryptContext
-
-from .config import settings
-
-# Configuración de bcrypt para hash de contraseñas
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+from app.core.config import settings
 
 
 def verify_password(plain_password: str, hashed_password: str) -> bool:
-    """Verificar contraseña"""
-    return pwd_context.verify(plain_password, hashed_password)
+    """
+    Verifica que una contraseña en texto plano coincida con su hash
+    
+    Args:
+        plain_password: Contraseña en texto plano
+        hashed_password: Hash de la contraseña
+        
+    Returns:
+        True si coinciden, False en caso contrario
+    """
+    # Limitar la contraseña a 72 bytes (límite de bcrypt)
+    password_bytes = plain_password.encode('utf-8')[:72]
+    hashed_bytes = hashed_password.encode('utf-8')
+    
+    return bcrypt.checkpw(password_bytes, hashed_bytes)
 
 
 def get_password_hash(password: str) -> str:
-    """Generar hash de contraseña"""
-    return pwd_context.hash(password)
+    """
+    Genera un hash bcrypt de una contraseña
+    
+    Args:
+        password: Contraseña en texto plano
+        
+    Returns:
+        Hash de la contraseña
+    """
+    # Limitar la contraseña a 72 bytes (límite de bcrypt)
+    password_bytes = password.encode('utf-8')[:72]
+    salt = bcrypt.gensalt()
+    hashed = bcrypt.hashpw(password_bytes, salt)
+    
+    return hashed.decode('utf-8')
 
 
-def create_access_token(data: dict, expires_delta: Union[timedelta, None] = None):
-    """Crear token JWT"""
+def create_access_token(data: Dict[str, Any], expires_delta: Optional[timedelta] = None) -> str:
+    """
+    Crea un token JWT
+    
+    Args:
+        data: Datos a incluir en el payload del token
+        expires_delta: Tiempo de expiración del token
+        
+    Returns:
+        Token JWT codificado
+    """
     to_encode = data.copy()
+    
     if expires_delta:
-        expire = datetime.utcnow() + expires_delta
+        expire = datetime.now(timezone.utc) + expires_delta
     else:
-        expire = datetime.utcnow() + timedelta(
-            minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES
-        )
-
+        expire = datetime.now(timezone.utc) + timedelta(minutes=15)
+    
     to_encode.update({"exp": expire})
-    encoded_jwt = jwt.encode(
-        to_encode, settings.SECRET_KEY, algorithm=settings.ALGORITHM
-    )
+    encoded_jwt = jwt.encode(to_encode, settings.SECRET_KEY, algorithm=settings.ALGORITHM)
+    
     return encoded_jwt
-
-
-def create_user_access_token(user, expires_delta: Union[timedelta, None] = None):
-    """Crear token JWT con información del usuario y permisos"""
-    permissions = get_user_permissions(user)
-    roles = [role.name for role in user.roles]
-
-    data = {
-        "sub": str(user.id),
-        "email": user.email,
-        "full_name": user.full_name,
-        "is_superuser": user.is_superuser,
-        "roles": roles,
-        "permissions": permissions,
-    }
-
-    to_encode = data.copy()
-    if expires_delta:
-        expire = datetime.utcnow() + expires_delta
-    else:
-        expire = datetime.utcnow() + timedelta(
-            minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES
-        )
-
-    to_encode.update({"exp": expire})
-    encoded_jwt = jwt.encode(
-        to_encode, settings.SECRET_KEY, algorithm=settings.ALGORITHM
-    )
-    return encoded_jwt
-
-
-def verify_token(token: str) -> dict:
-    """Verificar y decodificar token JWT"""
-    try:
-        payload = jwt.decode(
-            token, settings.SECRET_KEY, algorithms=[settings.ALGORITHM]
-        )
-        user_id: str = payload.get("sub")
-        if user_id is None:
-            raise HTTPException(
-                status_code=status.HTTP_401_UNAUTHORIZED,
-                detail="Could not validate credentials",
-                headers={"WWW-Authenticate": "Bearer"},
-            )
-        return {
-            "user_id": user_id,
-            "email": payload.get("email"),
-            "full_name": payload.get("full_name"),
-            "is_superuser": payload.get("is_superuser", False),
-            "roles": payload.get("roles", []),
-            "permissions": payload.get("permissions", []),
-        }
-    except JWTError:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Could not validate credentials",
-            headers={"WWW-Authenticate": "Bearer"},
-        )
-
-
-def get_user_permissions(user) -> List[str]:
-    """Obtener todos los permisos del usuario a través de sus roles"""
-    permissions = set()
-    for role in user.roles:
-        for permission in role.permissions:
-            permissions.add(permission.code)
-    return list(permissions)
