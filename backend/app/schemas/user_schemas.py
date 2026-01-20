@@ -6,9 +6,8 @@ de usuarios en las peticiones y respuestas de la API.
 """
 
 from datetime import datetime
-from typing import Optional
+from typing import Optional, Literal
 from pydantic import BaseModel, EmailStr, Field, ConfigDict
-from app.models.users import UserRole
 
 # Schemas Base
 class UserBase(BaseModel):
@@ -20,7 +19,7 @@ class UserBase(BaseModel):
 class UserCreate(UserBase):
     """Schema para crear un nuevo usuario"""
     password: str = Field(..., min_length=8, max_length=100, description="Contraseña (mínimo 8 caracteres)")
-    role: Optional[UserRole] = Field(default=UserRole.CUSTOMER, description="Rol del usuario")
+    role: Optional[Literal["ADMIN", "STAFF", "CUSTOMER"]] = Field(default="CUSTOMER", description="Rol del usuario")
     
     model_config = ConfigDict(json_schema_extra={
         "example": {
@@ -50,7 +49,7 @@ class UserUpdate(BaseModel):
     """Schema para actualizar un usuario existente"""
     email: Optional[EmailStr] = None
     full_name: Optional[str] = Field(None, min_length=2, max_length=255)
-    role: Optional[UserRole] = None
+    role: Optional[Literal["ADMIN", "STAFF", "CUSTOMER"]] = None
     is_active: Optional[bool] = None
     
     model_config = ConfigDict(json_schema_extra={
@@ -76,7 +75,7 @@ class UserPasswordUpdate(BaseModel):
 class UserResponse(UserBase):
     """Schema de respuesta con datos del usuario"""
     id: int
-    role: UserRole
+    role: Literal["ADMIN", "STAFF", "CUSTOMER"]
     is_active: bool
     created_at: datetime
     updated_at: Optional[datetime] = None

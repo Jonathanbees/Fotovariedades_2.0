@@ -1,25 +1,15 @@
-import enum
+from typing import Optional, List
 from datetime import datetime, timezone
-from typing import List, Optional
-from sqlalchemy import String, DateTime
+from sqlalchemy import String, Boolean, DateTime
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from app.models.base import Base
 
-class UserRole(enum.Enum):
-    """Roles de usuario en el sistema
-    
-    - ADMIN: Acceso total al panel de administración y métricas
-    - CUSTOMER: Cliente que puede comprar productos
-    - STAFF: Personal de tienda que valida QR codes
-    """
-    ADMIN = "admin"
-    CUSTOMER = "customer"
-    STAFF = "staff"
 
 class User(Base):
     """Modelo de usuario del sistema
     
-    Maneja clientes, administradores y validadores de QR.
+    Almacena información de autenticación y perfil de usuarios.
+    El campo role define los permisos: 'ADMIN', 'STAFF', 'CUSTOMER'
     """
     __tablename__ = "users"
     
@@ -27,8 +17,11 @@ class User(Base):
     email: Mapped[str] = mapped_column(String(255), unique=True, index=True, nullable=False)
     full_name: Mapped[str] = mapped_column(String(255), nullable=False)
     password_hash: Mapped[str] = mapped_column(String(255), nullable=False)
-    role: Mapped[UserRole] = mapped_column(default=UserRole.CUSTOMER, nullable=False)
-    is_active: Mapped[bool] = mapped_column(default=True, nullable=False)
+    
+    role: Mapped[str] = mapped_column(String(50), nullable=False, default="CUSTOMER")
+    
+    is_active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
+    
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), 
         default=lambda: datetime.now(timezone.utc),
@@ -41,7 +34,40 @@ class User(Base):
     )
     
     # Relationships
-    orders: Mapped[List["Order"]] = relationship("Order", back_populates="user", cascade="all, delete-orphan")
+    orders: Mapped[List["Order"]] = relationship("Order", back_populates="user")
     
     def __repr__(self) -> str:
-        return f"<User(id={self.id}, email='{self.email}', role='{self.role.value}')>"
+        return f"<User(id={self.id}, email='{self.email}', role='{self.role}')>"
+    
+    @property
+    def is_admin(self) -> bool:
+        """Verifica si el usuario es administrador"""
+        return self.role == "ADMIN"
+    
+    @property
+    def is_staff(self) -> bool:
+        """Verifica si el usuario es staff"""
+        return self.role == "STAFF"
+    
+    @property
+    def is_customer(self) -> bool:
+        """Verifica si el usuario es cliente"""
+        return self.role == "CUSTOMER"
+
+
+# Constantes para los roles (reemplazan el ENUM)
+class UserRole:
+    """Constantes para los roles de usuario"""
+    ADMIN = "ADMIN"
+    STAFF = "STAFF"
+    CUSTOMER = "CUSTOMER"
+    
+    @classmethod
+    def all(cls):
+        """Retorna todos los roles disponibles"""
+        return [cls.ADMIN, cls.STAFF, cls.CUSTOMER]
+    
+    @classmethod
+    def is_valid(cls, role: str) -> bool:
+        """Valida si un rol es válido"""
+        return role in cls.all()

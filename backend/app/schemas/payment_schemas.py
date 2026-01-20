@@ -6,11 +6,10 @@ de pagos y las respuestas de webhooks de Wompi.
 """
 
 from datetime import datetime
-from typing import Optional, Dict, Any
+from typing import Optional, Dict, Any, Literal
 from decimal import Decimal
 from uuid import UUID
 from pydantic import BaseModel, Field, ConfigDict
-from app.models.payments import PaymentStatus, PaymentMethod
 
 # ============= Payment Schemas =============
 
@@ -24,8 +23,8 @@ class PaymentCreate(PaymentBase):
     order_id: UUID
     wompi_transaction_id: str
     wompi_reference: Optional[str] = None
-    status: PaymentStatus
-    payment_method: Optional[PaymentMethod] = None
+    status: Literal["PENDING", "APPROVED", "DECLINED", "VOIDED", "ERROR"]
+    payment_method: Optional[Literal["CARD", "NEQUI", "PSE", "BANCOLOMBIA_TRANSFER", "BANCOLOMBIA_COLLECT"]] = None
     payment_method_type: Optional[str] = None
     transaction_date: Optional[datetime] = None
     
@@ -44,7 +43,7 @@ class PaymentCreate(PaymentBase):
 
 class PaymentUpdate(BaseModel):
     """Schema para actualizar un pago"""
-    status: Optional[PaymentStatus] = None
+    status: Optional[Literal["PENDING", "APPROVED", "DECLINED", "VOIDED", "ERROR"]] = None
     error_message: Optional[str] = None
     webhook_data: Optional[str] = None
     
@@ -60,8 +59,8 @@ class PaymentResponse(PaymentBase):
     order_id: UUID
     wompi_transaction_id: str
     wompi_reference: Optional[str] = None
-    status: PaymentStatus
-    payment_method: Optional[PaymentMethod] = None
+    status: Literal["PENDING", "APPROVED", "DECLINED", "VOIDED", "ERROR"]
+    payment_method: Optional[Literal["CARD", "NEQUI", "PSE", "BANCOLOMBIA_TRANSFER", "BANCOLOMBIA_COLLECT"]] = None
     payment_method_type: Optional[str] = None
     card_last_four: Optional[str] = None
     card_brand: Optional[str] = None
@@ -234,8 +233,8 @@ class WompiPaymentLinkResponse(BaseModel):
 class PaymentFilters(BaseModel):
     """Schema para filtros de búsqueda de pagos"""
     order_id: Optional[UUID] = None
-    status: Optional[PaymentStatus] = None
-    payment_method: Optional[PaymentMethod] = None
+    status: Optional[Literal["PENDING", "APPROVED", "DECLINED", "VOIDED", "ERROR"]] = None
+    payment_method: Optional[Literal["CARD", "NEQUI", "PSE", "BANCOLOMBIA_TRANSFER", "BANCOLOMBIA_COLLECT"]] = None
     date_from: Optional[datetime] = None
     date_to: Optional[datetime] = None
     

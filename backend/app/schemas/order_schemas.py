@@ -6,11 +6,10 @@ de pedidos y sus items en las peticiones y respuestas de la API.
 """
 
 from datetime import datetime
-from typing import Optional, List
+from typing import Optional, List, Literal
 from decimal import Decimal
 from uuid import UUID
 from pydantic import BaseModel, Field, ConfigDict, field_validator
-from app.models.orders import OrderStatus
 
 # ============= OrderItem Schemas =============
 
@@ -85,7 +84,7 @@ class OrderCreate(BaseModel):
 
 class OrderUpdate(BaseModel):
     """Schema para actualizar un pedido (limitado)"""
-    status: Optional[OrderStatus] = Field(None, description="Nuevo estado del pedido")
+    status: Optional[Literal["PENDING", "PAID", "FAILED", "REDEEMED", "CANCELLED"]] = Field(None, description="Nuevo estado del pedido")
     
     model_config = ConfigDict(json_schema_extra={
         "example": {
@@ -98,7 +97,7 @@ class OrderResponse(BaseModel):
     id: UUID
     user_id: int
     total_amount: Decimal
-    status: OrderStatus
+    status: Literal["PENDING", "PAID", "FAILED", "REDEEMED", "CANCELLED"]
     wompi_reference: Optional[str] = None
     validation_code: str
     created_at: datetime
@@ -140,7 +139,7 @@ class OrderWithUser(OrderDetailResponse):
 
 class OrderStatusUpdate(BaseModel):
     """Schema para cambiar el estado de un pedido"""
-    status: OrderStatus = Field(..., description="Nuevo estado del pedido")
+    status: Literal["PENDING", "PAID", "FAILED", "REDEEMED", "CANCELLED"] = Field(..., description="Nuevo estado del pedido")
     
     model_config = ConfigDict(json_schema_extra={
         "example": {
@@ -187,7 +186,7 @@ class OrderListResponse(BaseModel):
 
 class OrderFilters(BaseModel):
     """Schema para filtros de búsqueda de pedidos"""
-    status: Optional[OrderStatus] = Field(None, description="Filtrar por estado")
+    status: Optional[Literal["PENDING", "PAID", "FAILED", "REDEEMED", "CANCELLED"]] = Field(None, description="Filtrar por estado")
     user_id: Optional[int] = Field(None, description="Filtrar por usuario")
     date_from: Optional[datetime] = Field(None, description="Fecha desde")
     date_to: Optional[datetime] = Field(None, description="Fecha hasta")

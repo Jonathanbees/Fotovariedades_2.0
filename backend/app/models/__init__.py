@@ -14,12 +14,8 @@ from app.models.payments import Payment, PaymentStatus, PaymentMethod
 __all__ = [
     "Base",
     "User",
-    "UserRole",
     "Product",
     "Order",
     "OrderItem",
-    "OrderStatus",
     "Payment",
-    "PaymentStatus",
-    "PaymentMethod",
 ]

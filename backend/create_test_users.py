@@ -27,7 +27,7 @@ def create_test_users():
             email="admin@fotovariedades.com",
             full_name="Administrador Principal",
             password_hash=get_password_hash("Admin123!"),
-            role=UserRole.ADMIN,
+            role=UserRole.ADMIN,  # Ahora es una constante string
             is_active=True
         )
         db.add(admin)
@@ -38,7 +38,7 @@ def create_test_users():
             email="staff@fotovariedades.com",
             full_name="Personal de Tienda",
             password_hash=get_password_hash("Staff123!"),
-            role=UserRole.STAFF,
+            role=UserRole.STAFF,  # Ahora es una constante string
             is_active=True
         )
         db.add(staff)
@@ -49,7 +49,7 @@ def create_test_users():
             email="cliente@example.com",
             full_name="Juan Pérez",
             password_hash=get_password_hash("Cliente123!"),
-            role=UserRole.CUSTOMER,
+            role=UserRole.CUSTOMER,  # Ahora es una constante string
             is_active=True
         )
         db.add(customer)
@@ -79,6 +79,8 @@ def create_test_users():
     except Exception as e:
         db.rollback()
         print(f"\n❌ Error al crear usuarios: {e}")
+        import traceback
+        traceback.print_exc()
     finally:
         db.close()
 
