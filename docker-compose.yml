@@ -82,12 +82,14 @@ services:
     build:
       context: ./frontend
       dockerfile: dockerfile
+      args:
+        NEXT_PUBLIC_API_URL: http://backend:8000/api/v1
     container_name: fotovariedades-frontend
     ports:
       - "3000:3000"
     environment:
-      NODE_ENV: ${NODE_ENV:-development}
-      NEXT_PUBLIC_API_URL: http://localhost:8000
+      NODE_ENV: ${NODE_ENV:-production}
+      NEXT_PUBLIC_API_URL: http://backend:8000/api/v1
     restart: unless-stopped
     networks:
       - fotovariedades-network
