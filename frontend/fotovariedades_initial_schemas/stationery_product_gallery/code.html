@@ -1,401 +1,917 @@
-<!DOCTYPE html>
-<html lang="es"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Fotovariedades la 68 - Stationery Product Gallery</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-<script>
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        primary: "#ec4899", // Using a vibrant pink from the flower logo
-                        secondary: "#10b981", // Green for secondary actions/whatsapp
-                        "background-light": "#f3f4f6",
-                        "background-dark": "#0f172a",
-                        "surface-light": "#ffffff",
-                        "surface-dark": "#1e293b",
-                    },
-                    fontFamily: {
-                        sans: ["Inter", "sans-serif"],
-                        display: ["Fredoka", "sans-serif"],
-                    },
-                    borderRadius: {
-                        DEFAULT: "0.5rem",
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>Fotovariedades la 68 - Stationery Product Gallery</title>
+        <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+        />
+        <script>
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        colors: {
+                            primary: "#ec4899", // Using a vibrant pink from the flower logo
+                            secondary: "#10b981", // Green for secondary actions/whatsapp
+                            "background-light": "#f3f4f6",
+                            "background-dark": "#0f172a",
+                            "surface-light": "#ffffff",
+                            "surface-dark": "#1e293b",
+                        },
+                        fontFamily: {
+                            sans: ["Inter", "sans-serif"],
+                            display: ["Fredoka", "sans-serif"],
+                        },
+                        borderRadius: {
+                            DEFAULT: "0.5rem",
+                        },
                     },
                 },
-            },
-        };
-    </script>
-<style>.scrollbar-thin::-webkit-scrollbar {
-            width: 6px;
-        }
-        .scrollbar-thin::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        .scrollbar-thin::-webkit-scrollbar-thumb {
-            background-color: #cbd5e1;
-            border-radius: 20px;
-        }
-        .dark .scrollbar-thin::-webkit-scrollbar-thumb {
-            background-color: #475569;
-        }.logo-gradient {
-            background: linear-gradient(to right, #ec4899, #eab308, #10b981, #3b82f6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-    </style>
-</head>
-<body class="bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-200 transition-colors duration-200 font-sans">
-<div class="bg-gray-900 text-white text-xs py-2 px-4">
-<div class="max-w-7xl mx-auto flex justify-between items-center">
-<div class="flex items-center space-x-4">
-<span class="flex items-center"><span class="material-icons text-sm mr-1">email</span> fotovariedadesla68@gmail.com</span>
-<span class="flex items-center"><span class="material-icons text-sm mr-1">phone</span> 320 727 72 32</span>
-</div>
-<div class="hidden sm:flex space-x-4">
-<a class="hover:text-primary transition-colors" href="#">Envíos</a>
-<a class="hover:text-primary transition-colors" href="#">Ayuda</a>
-</div>
-</div>
-</div>
-<header class="bg-surface-light dark:bg-surface-dark shadow-md sticky top-0 z-50 transition-colors duration-200">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="flex justify-between items-center h-20">
-<div class="flex-shrink-0 flex items-center gap-2">
-<div class="w-10 h-10 relative flex-shrink-0">
-<div class="absolute inset-0 bg-pink-500 rounded-full opacity-20 animate-pulse"></div>
-<svg class="w-full h-full" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="M12 2L14.5 9H22L16 13.5L18.5 21L12 16.5L5.5 21L8 13.5L2 9H9.5L12 2Z" fill="url(#flower-gradient)" stroke="none"></path>
-<defs>
-<linearGradient gradientUnits="userSpaceOnUse" id="flower-gradient" x1="2" x2="22" y1="2" y2="21">
-<stop stop-color="#ec4899"></stop>
-<stop offset="0.5" stop-color="#eab308"></stop>
-<stop offset="1" stop-color="#3b82f6"></stop>
-</linearGradient>
-</defs>
-</svg>
-</div>
-<div class="flex flex-col">
-<span class="font-display text-2xl font-bold logo-gradient leading-tight">Variedades la 68</span>
-<span class="text-xs text-gray-500 dark:text-gray-400 font-medium tracking-wider">FOTOVARIEDADES</span>
-</div>
-</div>
-<div class="hidden md:flex flex-1 max-w-lg mx-8">
-<div class="relative w-full">
-<input class="w-full bg-gray-100 dark:bg-gray-800 border-none rounded-full py-2 pl-4 pr-10 focus:ring-2 focus:ring-primary text-sm dark:text-white" placeholder="Buscar cuadernos, lapiceros, fotos..." type="text"/>
-<button class="absolute right-0 top-0 mt-2 mr-3 text-gray-400 hover:text-primary">
-<span class="material-icons">search</span>
-</button>
-</div>
-</div>
-<div class="flex items-center space-x-4 text-gray-600 dark:text-gray-300">
-<button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" onclick="document.documentElement.classList.toggle('dark')">
-<span class="material-icons dark:hidden">dark_mode</span>
-<span class="material-icons hidden dark:block text-yellow-400">light_mode</span>
-</button>
-<button class="p-2 relative rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-<span class="material-icons">shopping_cart</span>
-<span class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/4 -translate-y-1/4 bg-primary rounded-full">3</span>
-</button>
-<button class="hidden sm:block p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-<span class="material-icons">person</span>
-</button>
-<button class="md:hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
-<span class="material-icons">menu</span>
-</button>
-</div>
-</div>
-<nav class="hidden md:flex space-x-8 pb-4 text-sm font-medium border-b border-gray-200 dark:border-gray-700">
-<a class="text-primary border-b-2 border-primary pb-1" href="#">Papelería</a>
-<a class="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors" href="#">Fotografía &amp; Documentos</a>
-<a class="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors" href="#">Dulces &amp; Snacks</a>
-<a class="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors" href="#">Tecnología</a>
-<a class="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors" href="#">Ofertas</a>
-</nav>
-</div>
-</header>
-<div class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-<div class="text-sm breadcrumbs text-gray-500 dark:text-gray-400 mb-2">
-<span>Inicio</span> <span class="mx-2">/</span> <span class="font-medium text-gray-900 dark:text-white">Papelería</span>
-</div>
-<h1 class="text-3xl font-bold text-gray-900 dark:text-white font-display">Galería de Productos</h1>
-<p class="text-gray-500 dark:text-gray-400 mt-1">Encuentra todo lo que necesitas para tu oficina y colegio.</p>
-</div>
-</div>
-<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-<div class="flex flex-col md:flex-row gap-8">
-<aside class="w-full md:w-64 flex-shrink-0 space-y-8">
-<div>
-<h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Categorías</h3>
-<ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
-<li>
-<a class="flex items-center justify-between group" href="#">
-<span class="group-hover:text-primary">Cuadernos y Libretas</span>
-<span class="text-xs bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded-full">120</span>
-</a>
-</li>
-<li>
-<a class="flex items-center justify-between group" href="#">
-<span class="group-hover:text-primary font-medium text-primary">Escritura (Bolígrafos)</span>
-<span class="text-xs bg-primary text-white px-2 py-0.5 rounded-full">85</span>
-</a>
-</li>
-<li>
-<a class="flex items-center justify-between group" href="#">
-<span class="group-hover:text-primary">Papel y Sobres</span>
-<span class="text-xs bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded-full">40</span>
-</a>
-</li>
-<li>
-<a class="flex items-center justify-between group" href="#">
-<span class="group-hover:text-primary">Arte y Manualidades</span>
-<span class="text-xs bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded-full">60</span>
-</a>
-</li>
-<li>
-<a class="flex items-center justify-between group" href="#">
-<span class="group-hover:text-primary">Oficina</span>
-<span class="text-xs bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded-full">35</span>
-</a>
-</li>
-</ul>
-</div>
-<div class="border-t border-gray-200 dark:border-gray-700 pt-6">
-<h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Precio</h3>
-<div class="flex items-center space-x-4 mb-4">
-<div class="w-full">
-<label class="sr-only" for="min-price">Min</label>
-<input class="w-full rounded border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm focus:ring-primary focus:border-primary" id="min-price" placeholder="$ Min" type="number"/>
-</div>
-<span class="text-gray-400">-</span>
-<div class="w-full">
-<label class="sr-only" for="max-price">Max</label>
-<input class="w-full rounded border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm focus:ring-primary focus:border-primary" id="max-price" placeholder="$ Max" type="number"/>
-</div>
-</div>
-<button class="w-full py-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-sm font-medium rounded transition-colors text-gray-800 dark:text-gray-200">Aplicar</button>
-</div>
-<div class="border-t border-gray-200 dark:border-gray-700 pt-6">
-<h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Marcas</h3>
-<div class="space-y-2">
-<label class="flex items-center space-x-2 cursor-pointer">
-<input class="rounded text-primary focus:ring-primary border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800" type="checkbox"/>
-<span class="text-sm text-gray-600 dark:text-gray-300">Norma</span>
-</label>
-<label class="flex items-center space-x-2 cursor-pointer">
-<input checked="" class="rounded text-primary focus:ring-primary border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800" type="checkbox"/>
-<span class="text-sm text-gray-600 dark:text-gray-300">Prismacolor</span>
-</label>
-<label class="flex items-center space-x-2 cursor-pointer">
-<input class="rounded text-primary focus:ring-primary border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800" type="checkbox"/>
-<span class="text-sm text-gray-600 dark:text-gray-300">Sharpie</span>
-</label>
-<label class="flex items-center space-x-2 cursor-pointer">
-<input class="rounded text-primary focus:ring-primary border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800" type="checkbox"/>
-<span class="text-sm text-gray-600 dark:text-gray-300">Faber-Castell</span>
-</label>
-<label class="flex items-center space-x-2 cursor-pointer">
-<input class="rounded text-primary focus:ring-primary border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800" type="checkbox"/>
-<span class="text-sm text-gray-600 dark:text-gray-300">Papermate</span>
-</label>
-</div>
-</div>
-<div class="bg-gray-900 rounded-lg p-4 text-white space-y-2 mt-6">
-<h4 class="font-bold text-primary">Servicios Extra</h4>
-<ul class="text-xs space-y-1 opacity-80 list-disc list-inside">
-<li>Fotocopias &amp; Impresión</li>
-<li>Fotos Documento</li>
-<li>Plastificado</li>
-<li>Argollado</li>
-</ul>
-</div>
-</aside>
-<div class="flex-1">
-<div class="flex justify-between items-center mb-6">
-<p class="text-sm text-gray-500 dark:text-gray-400">Mostrando 12 de 85 productos</p>
-<div class="flex items-center space-x-2">
-<label class="text-sm text-gray-700 dark:text-gray-300 hidden sm:block" for="sort">Ordenar por:</label>
-<select class="block w-40 pl-3 pr-10 py-2 text-base border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm rounded-md dark:text-white" id="sort">
-<option>Relevancia</option>
-<option>Precio: Menor a Mayor</option>
-<option>Precio: Mayor a Menor</option>
-<option>Más Vendidos</option>
-</select>
-</div>
-</div>
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-<div class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 flex flex-col group">
-<div class="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-700">
-<span class="absolute top-2 left-2 bg-yellow-400 text-yellow-900 text-xs font-bold px-2 py-1 rounded z-10">-10%</span>
-<img alt="Cuaderno Norma" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_w3x-m5g0FWJV2EuASBb4SrLplG24plRv_Sy-0uOBuyUAyOr0pOWeSxudJdT6pF04WYovJRsr--4jWLIgNST0X9dFWCYa0YI2YClg68e2C4A52Fcg1gPW6hZSvSsDosQ1mAp9_Z1mlgsykixmHopmgF01iIehdeTV8WBfVGFcXvGE68iuOxxhd46BE29_qTtdYZ3l7aj_LyjLtqLSzIApv7JbLkwexLbZ4E4Gm7j_quccmRU4dtQqAMu8PVSboFJTVJ_bv2O2d0Q"/>
-</div>
-<div class="p-4 flex flex-col flex-1">
-<p class="text-xs text-gray-500 dark:text-gray-400 mb-1">Cuadernos</p>
-<h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 leading-tight">Cuaderno Argollado Norma 100 Hojas</h3>
-<div class="mt-auto flex items-center justify-between">
-<div>
-<span class="text-xl font-bold text-gray-900 dark:text-white">$12.500</span>
-<span class="text-sm text-gray-400 line-through ml-1">$14.000</span>
-</div>
-<button class="bg-primary hover:bg-pink-600 text-white p-2 rounded-full shadow-md transition-colors transform active:scale-95">
-<span class="material-icons text-sm">add_shopping_cart</span>
-</button>
-</div>
-</div>
-</div>
-<div class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 flex flex-col group">
-<div class="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-700">
-<img alt="Set de Colores" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwNJB0QzulVaw-zfgHv10WhWFNAsZKO3QRbvHAnHlRXIIr8UHIG-AIbgXWH4PeKxqU05ZP78Hfhabkpm0piieNQ34l7a3OEmReK0ytLsq9O-xb9qeCozbw09BOSP0z4vnbpzjKah5rV9Kc3sH74zxPVcbw-3Pk9B5MnY85d6mTEqE9vPLjlyiF2TYQUePVzH9y_W-_FKn81FqSpQ0kkVsszNJKWOehFsg1TZN0aqli3rX2ZzOyFzC7vw9vUPm5R2n3HWLf0b-DFbk"/>
-</div>
-<div class="p-4 flex flex-col flex-1">
-<p class="text-xs text-gray-500 dark:text-gray-400 mb-1">Arte</p>
-<h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 leading-tight">Colores Prismacolor Premier x24</h3>
-<div class="mt-auto flex items-center justify-between">
-<div>
-<span class="text-xl font-bold text-gray-900 dark:text-white">$45.000</span>
-</div>
-<button class="bg-primary hover:bg-pink-600 text-white p-2 rounded-full shadow-md transition-colors transform active:scale-95">
-<span class="material-icons text-sm">add_shopping_cart</span>
-</button>
-</div>
-</div>
-</div>
-<div class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 flex flex-col group">
-<div class="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-700">
-<img alt="Bolígrafos" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDBjdY1gnFsvsERqOnJm324l4M9P4D80cC-ToGfLM_u75LMp11RADqVaxRcHkvvSgZI9TasMpjUKRd19rBr7y2AwqQwDNXTsmxDU5KSFERbg3-tdHziTHqDE0pNWVKywfEAeJEq5IGOUzCTdOAR_0TkDD7q1ynj_KH1WRXWRywTpzYuL30eFgn8YsSicY1XXiv11AElm7LLndkc8ZGN5Loee9AyltFWVJqmPN8-26C-Tdu5w9mJOvz-7_qIEgVLilmcG-YxZcSJxA"/>
-</div>
-<div class="p-4 flex flex-col flex-1">
-<p class="text-xs text-gray-500 dark:text-gray-400 mb-1">Escritura</p>
-<h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 leading-tight">Kit Bolígrafos Kilométrico x10</h3>
-<div class="mt-auto flex items-center justify-between">
-<div>
-<span class="text-xl font-bold text-gray-900 dark:text-white">$8.000</span>
-</div>
-<button class="bg-primary hover:bg-pink-600 text-white p-2 rounded-full shadow-md transition-colors transform active:scale-95">
-<span class="material-icons text-sm">add_shopping_cart</span>
-</button>
-</div>
-</div>
-</div>
-<div class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 flex flex-col group">
-<div class="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-700">
-<span class="absolute top-2 left-2 bg-secondary text-white text-xs font-bold px-2 py-1 rounded z-10">Nuevo</span>
-<img alt="Resma Papel" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZvsEMyMlux7o_7yIcxFaLlQ3H3coIqcpBaFZ66DlGrOBLoJEyIjIya0kZrWzB9rbOLgLEFmJ1TAmzJQIqLja1kSefyo3rMJ3Zja0tZnrlqOpKV4PjytMZg5ZODyaxRkRCWZoNnXGHImId4Z8CH1cmlKCFiSXd3xPumKpoxX2a4nCsVUYo10Pnzrox2uBuN2WT7tYAAlMAxrlqSJO-agfGORAf8N7SVq4Bwepcui67T8uyfnPT9xBkJ_4IGzYgmPx5Uvkt27Krook"/>
-</div>
-<div class="p-4 flex flex-col flex-1">
-<p class="text-xs text-gray-500 dark:text-gray-400 mb-1">Papelería</p>
-<h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 leading-tight">Resma Papel Carta Reprograf</h3>
-<div class="mt-auto flex items-center justify-between">
-<div>
-<span class="text-xl font-bold text-gray-900 dark:text-white">$18.500</span>
-</div>
-<button class="bg-primary hover:bg-pink-600 text-white p-2 rounded-full shadow-md transition-colors transform active:scale-95">
-<span class="material-icons text-sm">add_shopping_cart</span>
-</button>
-</div>
-</div>
-</div>
-<div class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 flex flex-col group">
-<div class="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-700">
-<img alt="Marcadores" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6MkC8rc7YXq4xG5E0oGZOTNhvwvnEn_vCFgJrtG4aqZQPF3BhhDrAtlFJjkR2oLprvqJLBQ-URqN75UBI4xw62luUc2fPuun4YpCzNKzbbMDdcVqyeiCZTVJbnrFAxcnyUr0wDfpy3wwmqJuM0OxL7q5JDnJstD9dCg7gSBpgFEVrgoia5bgGncYe9isuF7bXKxg06uGh3NKS7NkrRWMIDWs4xg8FeJUd67b8ils2jzVToQXNSmwnXd0Te69OWovJa0YkTCRwuSE"/>
-</div>
-<div class="p-4 flex flex-col flex-1">
-<p class="text-xs text-gray-500 dark:text-gray-400 mb-1">Marcadores</p>
-<h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 leading-tight">Sharpie Permanente Punta Fina x4</h3>
-<div class="mt-auto flex items-center justify-between">
-<div>
-<span class="text-xl font-bold text-gray-900 dark:text-white">$15.000</span>
-</div>
-<button class="bg-primary hover:bg-pink-600 text-white p-2 rounded-full shadow-md transition-colors transform active:scale-95">
-<span class="material-icons text-sm">add_shopping_cart</span>
-</button>
-</div>
-</div>
-</div>
-<div class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 flex flex-col group">
-<div class="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-700">
-<img alt="Tijeras" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBurFOM57sDBklfGxTCLyQZFQL0LAKcxRvUst9c21wvzRrBgahmsJEXE7R6kPGNwbpkB-NC2FtkN3ZuHGxNpeVA5kj6SgneaJ7dWXyxiAeJsHJSjRpAExqGaulcD21TJJu5hAbaeVNsU9rx8Z_K7BG7xLwpubUHBrafEDWCLsHZEuAes71XbEl52YsNrvPpdFKIiA2n7wKBwVAtD949kQF8NUi33qLCZVZt0ooJYb3GIVyTMv-N2jis_B55bMDCl78ZORHa15Iy6YY"/>
-</div>
-<div class="p-4 flex flex-col flex-1">
-<p class="text-xs text-gray-500 dark:text-gray-400 mb-1">Manualidades</p>
-<h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 leading-tight">Tijeras Punta Roma Escolar</h3>
-<div class="mt-auto flex items-center justify-between">
-<div>
-<span class="text-xl font-bold text-gray-900 dark:text-white">$5.500</span>
-</div>
-<button class="bg-primary hover:bg-pink-600 text-white p-2 rounded-full shadow-md transition-colors transform active:scale-95">
-<span class="material-icons text-sm">add_shopping_cart</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-<div class="mt-12 flex justify-center">
-<nav aria-label="Pagination" class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px">
-<a class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm font-medium text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700" href="#">
-<span class="sr-only">Previous</span>
-<span class="material-icons text-sm">chevron_left</span>
-</a>
-<a aria-current="page" class="z-10 bg-primary border-primary text-white relative inline-flex items-center px-4 py-2 border text-sm font-medium" href="#">1</a>
-<a class="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 relative inline-flex items-center px-4 py-2 border text-sm font-medium" href="#">2</a>
-<a class="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 relative inline-flex items-center px-4 py-2 border text-sm font-medium" href="#">3</a>
-<a class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm font-medium text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700" href="#">
-<span class="sr-only">Next</span>
-<span class="material-icons text-sm">chevron_right</span>
-</a>
-</nav>
-</div>
-</div>
-</div>
-</main>
-<a class="fixed bottom-6 right-6 z-40 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg flex items-center justify-center transition-transform hover:scale-110" href="https://wa.me/573207277232" target="_blank">
-<svg class="css-i6dzq1" fill="none" height="32" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="32"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-</a>
-<footer class="bg-gray-900 text-white pt-12 pb-6">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-<div class="col-span-1 md:col-span-1">
-<span class="text-2xl font-bold font-display logo-gradient mb-4 block">Variedades la 68</span>
-<p class="text-gray-400 text-sm">
-                        Tu tienda de confianza para útiles escolares, fotografía, documentos y los mejores dulces.
-                    </p>
-</div>
-<div>
-<h4 class="text-lg font-semibold mb-4 text-primary">Tienda</h4>
-<ul class="space-y-2 text-sm text-gray-400">
-<li><a class="hover:text-white" href="#">Papelería</a></li>
-<li><a class="hover:text-white" href="#">Fotografía</a></li>
-<li><a class="hover:text-white" href="#">Dulces</a></li>
-<li><a class="hover:text-white" href="#">Servicios de Impresión</a></li>
-</ul>
-</div>
-<div>
-<h4 class="text-lg font-semibold mb-4 text-primary">Atención</h4>
-<ul class="space-y-2 text-sm text-gray-400">
-<li><a class="hover:text-white" href="#">Contáctanos</a></li>
-<li><a class="hover:text-white" href="#">Envíos y Devoluciones</a></li>
-<li><a class="hover:text-white" href="#">Preguntas Frecuentes</a></li>
-<li><a class="hover:text-white" href="#">Términos y Condiciones</a></li>
-</ul>
-</div>
-<div>
-<h4 class="text-lg font-semibold mb-4 text-primary">Contacto</h4>
-<ul class="space-y-2 text-sm text-gray-400">
-<li class="flex items-center"><span class="material-icons text-sm mr-2">phone</span> 320 727 72 32</li>
-<li class="flex items-center"><span class="material-icons text-sm mr-2">email</span> fotovariedadesla68@gmail.com</li>
-<li class="flex items-center"><span class="material-icons text-sm mr-2">location_on</span> Calle 68, Bogotá</li>
-</ul>
-</div>
-</div>
-<div class="border-t border-gray-800 pt-6 text-center text-sm text-gray-500">
-                © 2023 Fotovariedades la 68. Todos los derechos reservados.
+            };
+        </script>
+        <style>
+            .scrollbar-thin::-webkit-scrollbar {
+                width: 6px;
+            }
+            .scrollbar-thin::-webkit-scrollbar-track {
+                background: transparent;
+            }
+            .scrollbar-thin::-webkit-scrollbar-thumb {
+                background-color: #cbd5e1;
+                border-radius: 20px;
+            }
+            .dark .scrollbar-thin::-webkit-scrollbar-thumb {
+                background-color: #475569;
+            }
+            .logo-gradient {
+                background: linear-gradient(
+                    to right,
+                    #ec4899,
+                    #eab308,
+                    #10b981,
+                    #3b82f6
+                );
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        </style>
+    </head>
+    <body
+        class="bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-200 transition-colors duration-200 font-sans"
+    >
+        <div class="bg-gray-900 text-white text-xs py-2 px-4">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <span class="flex items-center"
+                        ><span class="material-icons text-sm mr-1">email</span>
+                        fotovariedadesla68@gmail.com</span
+                    >
+                    <span class="flex items-center"
+                        ><span class="material-icons text-sm mr-1">phone</span>
+                        320 727 72 32</span
+                    >
+                </div>
+                <div class="hidden sm:flex space-x-4">
+                    <a class="hover:text-primary transition-colors" href="#"
+                        >Envíos</a
+                    >
+                    <a class="hover:text-primary transition-colors" href="#"
+                        >Ayuda</a
+                    >
+                </div>
             </div>
-</div>
-</footer>
-
-</body></html>
+        </div>
+        <header
+            class="bg-surface-light dark:bg-surface-dark shadow-md sticky top-0 z-50 transition-colors duration-200"
+        >
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-20">
+                    <div class="shrink-0 flex items-center gap-2">
+                        <div class="w-10 h-10 relative shrink-0">
+                            <div
+                                class="absolute inset-0 bg-pink-500 rounded-full opacity-20 animate-pulse"
+                            ></div>
+                            <svg
+                                class="w-full h-full"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M12 2L14.5 9H22L16 13.5L18.5 21L12 16.5L5.5 21L8 13.5L2 9H9.5L12 2Z"
+                                    fill="url(#flower-gradient)"
+                                    stroke="none"
+                                ></path>
+                                <defs>
+                                    <linearGradient
+                                        gradientUnits="userSpaceOnUse"
+                                        id="flower-gradient"
+                                        x1="2"
+                                        x2="22"
+                                        y1="2"
+                                        y2="21"
+                                    >
+                                        <stop stop-color="#ec4899"></stop>
+                                        <stop
+                                            offset="0.5"
+                                            stop-color="#eab308"
+                                        ></stop>
+                                        <stop
+                                            offset="1"
+                                            stop-color="#3b82f6"
+                                        ></stop>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <div class="flex flex-col">
+                            <span
+                                class="font-display text-2xl font-bold logo-gradient leading-tight"
+                                >Variedades la 68</span
+                            >
+                            <span
+                                class="text-xs text-gray-500 dark:text-gray-400 font-medium tracking-wider"
+                                >FOTOVARIEDADES</span
+                            >
+                        </div>
+                    </div>
+                    <div class="hidden md:flex flex-1 max-w-lg mx-8">
+                        <div class="relative w-full">
+                            <input
+                                class="w-full bg-gray-100 dark:bg-gray-800 border-none rounded-full py-2 pl-4 pr-10 focus:ring-2 focus:ring-primary text-sm dark:text-white"
+                                placeholder="Buscar cuadernos, lapiceros, fotos..."
+                                type="text"
+                            />
+                            <button
+                                class="absolute right-0 top-0 mt-2 mr-3 text-gray-400 hover:text-primary"
+                            >
+                                <span class="material-icons">search</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-center space-x-4 text-gray-600 dark:text-gray-300"
+                    >
+                        <button
+                            class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                            onclick="
+                                document.documentElement.classList.toggle(
+                                    'dark',
+                                )
+                            "
+                        >
+                            <span class="material-icons dark:hidden"
+                                >dark_mode</span
+                            >
+                            <span
+                                class="material-icons hidden dark:block text-yellow-400"
+                                >light_mode</span
+                            >
+                        </button>
+                        <button
+                            class="p-2 relative rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                        >
+                            <span class="material-icons">shopping_cart</span>
+                            <span
+                                class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/4 -translate-y-1/4 bg-primary rounded-full"
+                                >3</span
+                            >
+                        </button>
+                        <button
+                            class="hidden sm:block p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                        >
+                            <span class="material-icons">person</span>
+                        </button>
+                        <button
+                            class="md:hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
+                        >
+                            <span class="material-icons">menu</span>
+                        </button>
+                    </div>
+                </div>
+                <nav
+                    class="hidden md:flex space-x-8 pb-4 text-sm font-medium border-b border-gray-200 dark:border-gray-700"
+                >
+                    <a
+                        class="text-primary border-b-2 border-primary pb-1"
+                        href="#"
+                        >Papelería</a
+                    >
+                    <a
+                        class="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                        href="#"
+                        >Fotografía &amp; Documentos</a
+                    >
+                    <a
+                        class="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                        href="#"
+                        >Dulces &amp; Snacks</a
+                    >
+                    <a
+                        class="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                        href="#"
+                        >Tecnología</a
+                    >
+                    <a
+                        class="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                        href="#"
+                        >Ofertas</a
+                    >
+                </nav>
+            </div>
+        </header>
+        <div
+            class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700"
+        >
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+                <div
+                    class="text-sm breadcrumbs text-gray-500 dark:text-gray-400 mb-2"
+                >
+                    <span>Inicio</span> <span class="mx-2">/</span>
+                    <span class="font-medium text-gray-900 dark:text-white"
+                        >Papelería</span
+                    >
+                </div>
+                <h1
+                    class="text-3xl font-bold text-gray-900 dark:text-white font-display"
+                >
+                    Galería de Productos
+                </h1>
+                <p class="text-gray-500 dark:text-gray-400 mt-1">
+                    Encuentra todo lo que necesitas para tu oficina y colegio.
+                </p>
+            </div>
+        </div>
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="flex flex-col md:flex-row gap-8">
+                <aside class="w-full md:w-64 shrink-0 space-y-8">
+                    <div>
+                        <h3
+                            class="text-lg font-semibold text-gray-900 dark:text-white mb-4"
+                        >
+                            Categorías
+                        </h3>
+                        <ul
+                            class="space-y-2 text-sm text-gray-600 dark:text-gray-300"
+                        >
+                            <li>
+                                <a
+                                    class="flex items-center justify-between group"
+                                    href="#"
+                                >
+                                    <span class="group-hover:text-primary"
+                                        >Cuadernos y Libretas</span
+                                    >
+                                    <span
+                                        class="text-xs bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded-full"
+                                        >120</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center justify-between group"
+                                    href="#"
+                                >
+                                    <span
+                                        class="group-hover:text-primary font-medium text-primary"
+                                        >Escritura (Bolígrafos)</span
+                                    >
+                                    <span
+                                        class="text-xs bg-primary text-white px-2 py-0.5 rounded-full"
+                                        >85</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center justify-between group"
+                                    href="#"
+                                >
+                                    <span class="group-hover:text-primary"
+                                        >Papel y Sobres</span
+                                    >
+                                    <span
+                                        class="text-xs bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded-full"
+                                        >40</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center justify-between group"
+                                    href="#"
+                                >
+                                    <span class="group-hover:text-primary"
+                                        >Arte y Manualidades</span
+                                    >
+                                    <span
+                                        class="text-xs bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded-full"
+                                        >60</span
+                                    >
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    class="flex items-center justify-between group"
+                                    href="#"
+                                >
+                                    <span class="group-hover:text-primary"
+                                        >Oficina</span
+                                    >
+                                    <span
+                                        class="text-xs bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded-full"
+                                        >35</span
+                                    >
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div
+                        class="border-t border-gray-200 dark:border-gray-700 pt-6"
+                    >
+                        <h3
+                            class="text-lg font-semibold text-gray-900 dark:text-white mb-4"
+                        >
+                            Precio
+                        </h3>
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="w-full">
+                                <label class="sr-only" for="min-price"
+                                    >Min</label
+                                >
+                                <input
+                                    class="w-full rounded border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm focus:ring-primary focus:border-primary"
+                                    id="min-price"
+                                    placeholder="$ Min"
+                                    type="number"
+                                />
+                            </div>
+                            <span class="text-gray-400">-</span>
+                            <div class="w-full">
+                                <label class="sr-only" for="max-price"
+                                    >Max</label
+                                >
+                                <input
+                                    class="w-full rounded border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm focus:ring-primary focus:border-primary"
+                                    id="max-price"
+                                    placeholder="$ Max"
+                                    type="number"
+                                />
+                            </div>
+                        </div>
+                        <button
+                            class="w-full py-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-sm font-medium rounded transition-colors text-gray-800 dark:text-gray-200"
+                        >
+                            Aplicar
+                        </button>
+                    </div>
+                    <div
+                        class="border-t border-gray-200 dark:border-gray-700 pt-6"
+                    >
+                        <h3
+                            class="text-lg font-semibold text-gray-900 dark:text-white mb-4"
+                        >
+                            Marcas
+                        </h3>
+                        <div class="space-y-2">
+                            <label
+                                class="flex items-center space-x-2 cursor-pointer"
+                            >
+                                <input
+                                    class="rounded text-primary focus:ring-primary border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800"
+                                    type="checkbox"
+                                />
+                                <span
+                                    class="text-sm text-gray-600 dark:text-gray-300"
+                                    >Norma</span
+                                >
+                            </label>
+                            <label
+                                class="flex items-center space-x-2 cursor-pointer"
+                            >
+                                <input
+                                    checked=""
+                                    class="rounded text-primary focus:ring-primary border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800"
+                                    type="checkbox"
+                                />
+                                <span
+                                    class="text-sm text-gray-600 dark:text-gray-300"
+                                    >Prismacolor</span
+                                >
+                            </label>
+                            <label
+                                class="flex items-center space-x-2 cursor-pointer"
+                            >
+                                <input
+                                    class="rounded text-primary focus:ring-primary border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800"
+                                    type="checkbox"
+                                />
+                                <span
+                                    class="text-sm text-gray-600 dark:text-gray-300"
+                                    >Sharpie</span
+                                >
+                            </label>
+                            <label
+                                class="flex items-center space-x-2 cursor-pointer"
+                            >
+                                <input
+                                    class="rounded text-primary focus:ring-primary border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800"
+                                    type="checkbox"
+                                />
+                                <span
+                                    class="text-sm text-gray-600 dark:text-gray-300"
+                                    >Faber-Castell</span
+                                >
+                            </label>
+                            <label
+                                class="flex items-center space-x-2 cursor-pointer"
+                            >
+                                <input
+                                    class="rounded text-primary focus:ring-primary border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800"
+                                    type="checkbox"
+                                />
+                                <span
+                                    class="text-sm text-gray-600 dark:text-gray-300"
+                                    >Papermate</span
+                                >
+                            </label>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-gray-900 rounded-lg p-4 text-white space-y-2 mt-6"
+                    >
+                        <h4 class="font-bold text-primary">Servicios Extra</h4>
+                        <ul
+                            class="text-xs space-y-1 opacity-80 list-disc list-inside"
+                        >
+                            <li>Fotocopias &amp; Impresión</li>
+                            <li>Fotos Documento</li>
+                            <li>Plastificado</li>
+                            <li>Argollado</li>
+                        </ul>
+                    </div>
+                </aside>
+                <div class="flex-1">
+                    <div class="flex justify-between items-center mb-6">
+                        <p class="text-sm text-gray-500 dark:text-gray-400">
+                            Mostrando 12 de 85 productos
+                        </p>
+                        <div class="flex items-center space-x-2">
+                            <label
+                                class="text-sm text-gray-700 dark:text-gray-300 hidden sm:block"
+                                for="sort"
+                                >Ordenar por:</label
+                            >
+                            <select
+                                class="block w-40 pl-3 pr-10 py-2 text-base border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm rounded-md dark:text-white"
+                                id="sort"
+                            >
+                                <option>Relevancia</option>
+                                <option>Precio: Menor a Mayor</option>
+                                <option>Precio: Mayor a Menor</option>
+                                <option>Más Vendidos</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div
+                        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+                    >
+                        <div
+                            class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 flex flex-col group"
+                        >
+                            <div
+                                class="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-700"
+                            >
+                                <span
+                                    class="absolute top-2 left-2 bg-yellow-400 text-yellow-900 text-xs font-bold px-2 py-1 rounded z-10"
+                                    >-10%</span
+                                >
+                                <img
+                                    alt="Cuaderno Norma"
+                                    class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_w3x-m5g0FWJV2EuASBb4SrLplG24plRv_Sy-0uOBuyUAyOr0pOWeSxudJdT6pF04WYovJRsr--4jWLIgNST0X9dFWCYa0YI2YClg68e2C4A52Fcg1gPW6hZSvSsDosQ1mAp9_Z1mlgsykixmHopmgF01iIehdeTV8WBfVGFcXvGE68iuOxxhd46BE29_qTtdYZ3l7aj_LyjLtqLSzIApv7JbLkwexLbZ4E4Gm7j_quccmRU4dtQqAMu8PVSboFJTVJ_bv2O2d0Q"
+                                />
+                            </div>
+                            <div class="p-4 flex flex-col flex-1">
+                                <p
+                                    class="text-xs text-gray-500 dark:text-gray-400 mb-1"
+                                >
+                                    Cuadernos
+                                </p>
+                                <h3
+                                    class="text-lg font-semibold text-gray-900 dark:text-white mb-2 leading-tight"
+                                >
+                                    Cuaderno Argollado Norma 100 Hojas
+                                </h3>
+                                <div
+                                    class="mt-auto flex items-center justify-between"
+                                >
+                                    <div>
+                                        <span
+                                            class="text-xl font-bold text-gray-900 dark:text-white"
+                                            >$12.500</span
+                                        >
+                                        <span
+                                            class="text-sm text-gray-400 line-through ml-1"
+                                            >$14.000</span
+                                        >
+                                    </div>
+                                    <button
+                                        class="bg-primary hover:bg-pink-600 text-white p-2 rounded-full shadow-md transition-colors transform active:scale-95"
+                                    >
+                                        <span class="material-icons text-sm"
+                                            >add_shopping_cart</span
+                                        >
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 flex flex-col group"
+                        >
+                            <div
+                                class="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-700"
+                            >
+                                <img
+                                    alt="Set de Colores"
+                                    class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwNJB0QzulVaw-zfgHv10WhWFNAsZKO3QRbvHAnHlRXIIr8UHIG-AIbgXWH4PeKxqU05ZP78Hfhabkpm0piieNQ34l7a3OEmReK0ytLsq9O-xb9qeCozbw09BOSP0z4vnbpzjKah5rV9Kc3sH74zxPVcbw-3Pk9B5MnY85d6mTEqE9vPLjlyiF2TYQUePVzH9y_W-_FKn81FqSpQ0kkVsszNJKWOehFsg1TZN0aqli3rX2ZzOyFzC7vw9vUPm5R2n3HWLf0b-DFbk"
+                                />
+                            </div>
+                            <div class="p-4 flex flex-col flex-1">
+                                <p
+                                    class="text-xs text-gray-500 dark:text-gray-400 mb-1"
+                                >
+                                    Arte
+                                </p>
+                                <h3
+                                    class="text-lg font-semibold text-gray-900 dark:text-white mb-2 leading-tight"
+                                >
+                                    Colores Prismacolor Premier x24
+                                </h3>
+                                <div
+                                    class="mt-auto flex items-center justify-between"
+                                >
+                                    <div>
+                                        <span
+                                            class="text-xl font-bold text-gray-900 dark:text-white"
+                                            >$45.000</span
+                                        >
+                                    </div>
+                                    <button
+                                        class="bg-primary hover:bg-pink-600 text-white p-2 rounded-full shadow-md transition-colors transform active:scale-95"
+                                    >
+                                        <span class="material-icons text-sm"
+                                            >add_shopping_cart</span
+                                        >
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 flex flex-col group"
+                        >
+                            <div
+                                class="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-700"
+                            >
+                                <img
+                                    alt="Bolígrafos"
+                                    class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDBjdY1gnFsvsERqOnJm324l4M9P4D80cC-ToGfLM_u75LMp11RADqVaxRcHkvvSgZI9TasMpjUKRd19rBr7y2AwqQwDNXTsmxDU5KSFERbg3-tdHziTHqDE0pNWVKywfEAeJEq5IGOUzCTdOAR_0TkDD7q1ynj_KH1WRXWRywTpzYuL30eFgn8YsSicY1XXiv11AElm7LLndkc8ZGN5Loee9AyltFWVJqmPN8-26C-Tdu5w9mJOvz-7_qIEgVLilmcG-YxZcSJxA"
+                                />
+                            </div>
+                            <div class="p-4 flex flex-col flex-1">
+                                <p
+                                    class="text-xs text-gray-500 dark:text-gray-400 mb-1"
+                                >
+                                    Escritura
+                                </p>
+                                <h3
+                                    class="text-lg font-semibold text-gray-900 dark:text-white mb-2 leading-tight"
+                                >
+                                    Kit Bolígrafos Kilométrico x10
+                                </h3>
+                                <div
+                                    class="mt-auto flex items-center justify-between"
+                                >
+                                    <div>
+                                        <span
+                                            class="text-xl font-bold text-gray-900 dark:text-white"
+                                            >$8.000</span
+                                        >
+                                    </div>
+                                    <button
+                                        class="bg-primary hover:bg-pink-600 text-white p-2 rounded-full shadow-md transition-colors transform active:scale-95"
+                                    >
+                                        <span class="material-icons text-sm"
+                                            >add_shopping_cart</span
+                                        >
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 flex flex-col group"
+                        >
+                            <div
+                                class="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-700"
+                            >
+                                <span
+                                    class="absolute top-2 left-2 bg-secondary text-white text-xs font-bold px-2 py-1 rounded z-10"
+                                    >Nuevo</span
+                                >
+                                <img
+                                    alt="Resma Papel"
+                                    class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZvsEMyMlux7o_7yIcxFaLlQ3H3coIqcpBaFZ66DlGrOBLoJEyIjIya0kZrWzB9rbOLgLEFmJ1TAmzJQIqLja1kSefyo3rMJ3Zja0tZnrlqOpKV4PjytMZg5ZODyaxRkRCWZoNnXGHImId4Z8CH1cmlKCFiSXd3xPumKpoxX2a4nCsVUYo10Pnzrox2uBuN2WT7tYAAlMAxrlqSJO-agfGORAf8N7SVq4Bwepcui67T8uyfnPT9xBkJ_4IGzYgmPx5Uvkt27Krook"
+                                />
+                            </div>
+                            <div class="p-4 flex flex-col flex-1">
+                                <p
+                                    class="text-xs text-gray-500 dark:text-gray-400 mb-1"
+                                >
+                                    Papelería
+                                </p>
+                                <h3
+                                    class="text-lg font-semibold text-gray-900 dark:text-white mb-2 leading-tight"
+                                >
+                                    Resma Papel Carta Reprograf
+                                </h3>
+                                <div
+                                    class="mt-auto flex items-center justify-between"
+                                >
+                                    <div>
+                                        <span
+                                            class="text-xl font-bold text-gray-900 dark:text-white"
+                                            >$18.500</span
+                                        >
+                                    </div>
+                                    <button
+                                        class="bg-primary hover:bg-pink-600 text-white p-2 rounded-full shadow-md transition-colors transform active:scale-95"
+                                    >
+                                        <span class="material-icons text-sm"
+                                            >add_shopping_cart</span
+                                        >
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 flex flex-col group"
+                        >
+                            <div
+                                class="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-700"
+                            >
+                                <img
+                                    alt="Marcadores"
+                                    class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6MkC8rc7YXq4xG5E0oGZOTNhvwvnEn_vCFgJrtG4aqZQPF3BhhDrAtlFJjkR2oLprvqJLBQ-URqN75UBI4xw62luUc2fPuun4YpCzNKzbbMDdcVqyeiCZTVJbnrFAxcnyUr0wDfpy3wwmqJuM0OxL7q5JDnJstD9dCg7gSBpgFEVrgoia5bgGncYe9isuF7bXKxg06uGh3NKS7NkrRWMIDWs4xg8FeJUd67b8ils2jzVToQXNSmwnXd0Te69OWovJa0YkTCRwuSE"
+                                />
+                            </div>
+                            <div class="p-4 flex flex-col flex-1">
+                                <p
+                                    class="text-xs text-gray-500 dark:text-gray-400 mb-1"
+                                >
+                                    Marcadores
+                                </p>
+                                <h3
+                                    class="text-lg font-semibold text-gray-900 dark:text-white mb-2 leading-tight"
+                                >
+                                    Sharpie Permanente Punta Fina x4
+                                </h3>
+                                <div
+                                    class="mt-auto flex items-center justify-between"
+                                >
+                                    <div>
+                                        <span
+                                            class="text-xl font-bold text-gray-900 dark:text-white"
+                                            >$15.000</span
+                                        >
+                                    </div>
+                                    <button
+                                        class="bg-primary hover:bg-pink-600 text-white p-2 rounded-full shadow-md transition-colors transform active:scale-95"
+                                    >
+                                        <span class="material-icons text-sm"
+                                            >add_shopping_cart</span
+                                        >
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 flex flex-col group"
+                        >
+                            <div
+                                class="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-700"
+                            >
+                                <img
+                                    alt="Tijeras"
+                                    class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBurFOM57sDBklfGxTCLyQZFQL0LAKcxRvUst9c21wvzRrBgahmsJEXE7R6kPGNwbpkB-NC2FtkN3ZuHGxNpeVA5kj6SgneaJ7dWXyxiAeJsHJSjRpAExqGaulcD21TJJu5hAbaeVNsU9rx8Z_K7BG7xLwpubUHBrafEDWCLsHZEuAes71XbEl52YsNrvPpdFKIiA2n7wKBwVAtD949kQF8NUi33qLCZVZt0ooJYb3GIVyTMv-N2jis_B55bMDCl78ZORHa15Iy6YY"
+                                />
+                            </div>
+                            <div class="p-4 flex flex-col flex-1">
+                                <p
+                                    class="text-xs text-gray-500 dark:text-gray-400 mb-1"
+                                >
+                                    Manualidades
+                                </p>
+                                <h3
+                                    class="text-lg font-semibold text-gray-900 dark:text-white mb-2 leading-tight"
+                                >
+                                    Tijeras Punta Roma Escolar
+                                </h3>
+                                <div
+                                    class="mt-auto flex items-center justify-between"
+                                >
+                                    <div>
+                                        <span
+                                            class="text-xl font-bold text-gray-900 dark:text-white"
+                                            >$5.500</span
+                                        >
+                                    </div>
+                                    <button
+                                        class="bg-primary hover:bg-pink-600 text-white p-2 rounded-full shadow-md transition-colors transform active:scale-95"
+                                    >
+                                        <span class="material-icons text-sm"
+                                            >add_shopping_cart</span
+                                        >
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-12 flex justify-center">
+                        <nav
+                            aria-label="Pagination"
+                            class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px"
+                        >
+                            <a
+                                class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm font-medium text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700"
+                                href="#"
+                            >
+                                <span class="sr-only">Previous</span>
+                                <span class="material-icons text-sm"
+                                    >chevron_left</span
+                                >
+                            </a>
+                            <a
+                                aria-current="page"
+                                class="z-10 bg-primary border-primary text-white relative inline-flex items-center px-4 py-2 border text-sm font-medium"
+                                href="#"
+                                >1</a
+                            >
+                            <a
+                                class="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
+                                href="#"
+                                >2</a
+                            >
+                            <a
+                                class="bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
+                                href="#"
+                                >3</a
+                            >
+                            <a
+                                class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm font-medium text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700"
+                                href="#"
+                            >
+                                <span class="sr-only">Next</span>
+                                <span class="material-icons text-sm"
+                                    >chevron_right</span
+                                >
+                            </a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <a
+            class="fixed bottom-6 right-6 z-40 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg flex items-center justify-center transition-transform hover:scale-110"
+            href="https://wa.me/573207277232"
+            target="_blank"
+        >
+            <svg
+                class="css-i6dzq1"
+                fill="none"
+                height="32"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="32"
+            >
+                <path
+                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+                ></path>
+            </svg>
+        </a>
+        <footer class="bg-gray-900 text-white pt-12 pb-6">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                    <div class="col-span-1 md:col-span-1">
+                        <span
+                            class="text-2xl font-bold font-display logo-gradient mb-4 block"
+                            >Variedades la 68</span
+                        >
+                        <p class="text-gray-400 text-sm">
+                            Tu tienda de confianza para útiles escolares,
+                            fotografía, documentos y los mejores dulces.
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4 text-primary">
+                            Tienda
+                        </h4>
+                        <ul class="space-y-2 text-sm text-gray-400">
+                            <li>
+                                <a class="hover:text-white" href="#"
+                                    >Papelería</a
+                                >
+                            </li>
+                            <li>
+                                <a class="hover:text-white" href="#"
+                                    >Fotografía</a
+                                >
+                            </li>
+                            <li>
+                                <a class="hover:text-white" href="#">Dulces</a>
+                            </li>
+                            <li>
+                                <a class="hover:text-white" href="#"
+                                    >Servicios de Impresión</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4 text-primary">
+                            Atención
+                        </h4>
+                        <ul class="space-y-2 text-sm text-gray-400">
+                            <li>
+                                <a class="hover:text-white" href="#"
+                                    >Contáctanos</a
+                                >
+                            </li>
+                            <li>
+                                <a class="hover:text-white" href="#"
+                                    >Envíos y Devoluciones</a
+                                >
+                            </li>
+                            <li>
+                                <a class="hover:text-white" href="#"
+                                    >Preguntas Frecuentes</a
+                                >
+                            </li>
+                            <li>
+                                <a class="hover:text-white" href="#"
+                                    >Términos y Condiciones</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4 text-primary">
+                            Contacto
+                        </h4>
+                        <ul class="space-y-2 text-sm text-gray-400">
+                            <li class="flex items-center">
+                                <span class="material-icons text-sm mr-2"
+                                    >phone</span
+                                >
+                                320 727 72 32
+                            </li>
+                            <li class="flex items-center">
+                                <span class="material-icons text-sm mr-2"
+                                    >email</span
+                                >
+                                fotovariedadesla68@gmail.com
+                            </li>
+                            <li class="flex items-center">
+                                <span class="material-icons text-sm mr-2"
+                                    >location_on</span
+                                >
+                                Calle 68, Bogotá
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div
+                    class="border-t border-gray-800 pt-6 text-center text-sm text-gray-500"
+                >
+                    © 2023 Fotovariedades la 68. Todos los derechos reservados.
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

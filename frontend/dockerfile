@@ -12,14 +12,36 @@ WORKDIR /app
 
 COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* .npmrc* ./
 RUN \
-  if [ -f yarn.lock ]; then yarn install; \
-  elif [ -f package-lock.json ]; then rm package-lock.json && npm install; \
-  elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm i; \
-  elif [ -f package.json ]; then npm install; \
-  else echo "No package.json found." && exit 1; \
-  fi
+    if [ -f yarn.lock ]; then yarn install; \
+    elif [ -f package-lock.json ]; then rm package-lock.json && npm install; \
+    elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm i; \
+    elif [ -f package.json ]; then npm install; \
+    else echo "No package.json found." && exit 1; \
+    fi
 
+# ========================================
+# ✨ NUEVA ETAPA: DEVELOPMENT (HOT RELOAD)
+# ========================================
+FROM base AS development
+WORKDIR /app
+
+# Copiar node_modules desde deps
+COPY package*.json ./
+RUN npm install
+COPY . .
+
+# Variables de entorno para desarrollo
+ENV NODE_ENV=development
+ENV NEXT_TELEMETRY_DISABLED=1
+
+# Exponer puerto
+EXPOSE 3000
+
+# Comando para desarrollo con hot reload
+CMD ["npm", "run", "dev"]
+# ========================================
 # Rebuild the source code only when needed
+# ========================================
 FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
@@ -32,11 +54,11 @@ ENV NEXT_TELEMETRY_DISABLED=1
 ENV NEXT_OUTPUT=standalone
 
 RUN \
-  if [ -f yarn.lock ]; then yarn build; \
-  elif [ -f package-lock.json ]; then npm run build; \
-  elif [ -f pnpm-lock.yaml ]; then pnpm build; \
-  else npm run build; \
-  fi
+    if [ -f yarn.lock ]; then yarn build; \
+    elif [ -f package-lock.json ]; then npm run build; \
+    elif [ -f pnpm-lock.yaml ]; then pnpm build; \
+    else npm run build; \
+    fi
 
 # Production image
 FROM base AS runner
