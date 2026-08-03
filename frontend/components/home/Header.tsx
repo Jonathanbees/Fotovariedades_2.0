@@ -1,4 +1,3 @@
-'use client'
 import React from 'react';
 
 const Header: React.FC = () => {
@@ -10,7 +9,7 @@ const Header: React.FC = () => {
                         <span className="material-icons-outlined text-4xl text-primary group-hover:animate-spin">local_florist</span>
                         <div className="flex flex-col">
                             <span className="text-xl md:text-2xl font-bold brand-gradient-text leading-tight">Fotovariedades</span>
-                            <span className="text-sm font-semibold text-slate-500 dark:text-slate-400 -mt-1">la 68</span>
+                            <span className="text-sm font-semibold text-slate-500 dark:text-slate-400 -mt-1">la 69</span>
                         </div>
                     </a>
                     <div className="hidden md:flex items-center gap-8 font-medium">

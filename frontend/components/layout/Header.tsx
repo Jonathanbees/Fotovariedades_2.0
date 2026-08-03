@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import Logo from "../ui/Logo";
 import SearchInput from "../ui/SearchInput";
 import IconButton from "../ui/IconButton";
@@ -65,6 +66,16 @@ const Header: React.FC<HeaderProps> = ({
     setSearchQuery(value);
     onSearch?.(value);
   };
+
+  const defaultNavItems =
+    navItems.length > 0
+      ? navItems
+      : [
+          { label: "Inicio", href: "/#home" },
+          { label: "Papelería", href: "/#stationery" },
+          { label: "Servicios", href: "/#services" },
+          { label: "Dulcería", href: "/#sweets" },
+        ];
 
   // Base classes
   const baseClasses = `
@@ -186,203 +197,86 @@ const Header: React.FC<HeaderProps> = ({
 
   // Default and Shop variants
   return (
-    <header className={`${baseClasses} ${className}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Main header row */}
-        <div className="flex items-center justify-between h-16 md:h-20 gap-4">
-          {/* Logo */}
-          <Logo size={logoSize} />
-
-          {/* Desktop Navigation */}
-          {navItems.length > 0 && variant !== "shop" && (
-            <nav className="hidden md:flex items-center gap-8">
-              {navItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className={`
-                    font-medium transition-colors flex items-center gap-1.5
-                    ${
-                      item.isActive
-                        ? "text-primary"
-                        : "text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary"
-                    }
-                  `}
-                >
-                  {item.icon && (
-                    <span className="material-icons-outlined text-lg">
-                      {item.icon}
-                    </span>
-                  )}
-                  {item.label}
-                </a>
-              ))}
-            </nav>
-          )}
-
-          {/* Search (for shop variant, centered) */}
-          {showSearch && variant === "shop" && (
-            <div className="hidden md:flex flex-1 max-w-lg mx-8">
-              <SearchInput
-                placeholder="Buscar productos..."
-                variant="filled"
-                fullWidth
-                value={searchQuery}
-                onChange={handleSearch}
-                onSearch={onSearch}
-              />
+    <header
+      className={`${sticky ? "sticky top-0" : ""} z-50 w-full bg-surface-light/90 dark:bg-surface-dark/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-700 shadow-sm ${className}`}
+    >
+      <div className="container mx-auto px-4 py-4">
+        <div className="flex items-center justify-between gap-4">
+          <Link href="/#home" className="flex items-center gap-2 group">
+            <span className="material-icons-outlined text-4xl text-primary group-hover:animate-spin">
+              local_florist
+            </span>
+            <div className="flex flex-col">
+              <span className="text-xl md:text-2xl font-bold brand-gradient-text leading-tight">
+                Fotovariedades
+              </span>
+              <span className="text-sm font-semibold text-slate-500 dark:text-slate-400 -mt-1">
+                la 68
+              </span>
             </div>
-          )}
+          </Link>
 
-          {/* Right side actions */}
-          <div className="flex items-center gap-2 sm:gap-3">
-            {/* Mobile search button */}
-            {showSearch && (
-              <IconButton
-                icon="search"
-                variant="ghost"
-                className="md:hidden"
-                tooltip="Buscar"
-              />
-            )}
-
-            {/* Dark mode toggle */}
-            {showDarkModeToggle && (
-              <div className="hidden sm:block">
-                <IconButton
-                  icon="dark_mode"
-                  variant="ghost"
-                  onClick={toggleDarkMode}
-                  tooltip="Cambiar tema"
-                  className="dark:hidden"
-                />
-                <IconButton
-                  icon="light_mode"
-                  variant="ghost"
-                  onClick={toggleDarkMode}
-                  tooltip="Cambiar tema"
-                  className="hidden dark:flex"
-                />
-              </div>
-            )}
-
-            {/* Cart */}
-            {showCart && (
-              <IconButton
-                icon="shopping_cart"
-                variant="ghost"
-                badge={cartItemCount > 0 ? cartItemCount : undefined}
-                badgeColor="secondary"
-                onClick={onCartClick}
-                tooltip="Carrito"
-              />
-            )}
-
-            {/* User menu */}
-            {showUserMenu && (
-              <Avatar
-                src={userAvatar}
-                name={userName}
-                size="sm"
-                bordered
-                onClick={onUserClick}
-                className="cursor-pointer ml-1"
-              />
-            )}
-
-            {/* Mobile menu button */}
-            <IconButton
-              icon="menu"
-              variant="ghost"
-              className="md:hidden"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              tooltip="Menú"
-            />
-          </div>
-        </div>
-
-        {/* Secondary navigation row (for shop variant) */}
-        {variant === "shop" && navItems.length > 0 && (
-          <nav className="hidden md:flex items-center gap-8 pb-4 text-sm font-medium border-t border-gray-100 dark:border-gray-800 pt-3 -mx-4 px-4">
-            {navItems.map((item) => (
-              <a
+          <nav className="hidden md:flex items-center gap-8 font-medium">
+            {defaultNavItems.map((item) => (
+              <Link
                 key={item.href}
                 href={item.href}
-                className={`
-                  transition-colors pb-1
-                  ${
-                    item.isActive
-                      ? "text-primary border-b-2 border-primary"
-                      : "text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
-                  }
-                `}
+                className={`transition-colors hover:text-primary ${item.isActive ? "text-primary" : ""}`}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </nav>
-        )}
 
-        {/* Mobile menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200 dark:border-gray-700">
-            {/* Mobile search */}
+          <div className="flex items-center gap-4">
             {showSearch && (
-              <div className="mb-4">
-                <SearchInput
+              <div className="hidden md:flex relative">
+                <input
+                  className="pl-10 pr-4 py-2 rounded-full bg-slate-100 dark:bg-slate-800 border-none focus:ring-2 focus:ring-primary text-sm w-64"
                   placeholder="Buscar productos..."
-                  variant="filled"
-                  fullWidth
+                  type="text"
                   value={searchQuery}
-                  onChange={handleSearch}
-                  onSearch={onSearch}
+                  onChange={(event) => handleSearch(event.target.value)}
                 />
+                <span className="material-icons-outlined absolute left-3 top-2 text-slate-400">
+                  search
+                </span>
               </div>
             )}
 
-            {/* Mobile navigation */}
-            <nav className="flex flex-col gap-2">
-              {navItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className={`
-                    flex items-center gap-2 px-3 py-2 rounded-lg transition-colors
-                    ${
-                      item.isActive
-                        ? "bg-primary/10 text-primary font-medium"
-                        : "text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
-                    }
-                  `}
-                >
-                  {item.icon && (
-                    <span className="material-icons-outlined text-lg">
-                      {item.icon}
-                    </span>
-                  )}
-                  {item.label}
-                </a>
-              ))}
-            </nav>
+            {showCart && (
+              <button
+                type="button"
+                className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 transition relative"
+                onClick={onCartClick}
+                aria-label="Carrito"
+              >
+                <span className="material-icons-outlined">shopping_cart</span>
+                {cartItemCount > 0 && (
+                  <span className="absolute top-0 right-0 w-4 h-4 bg-secondary text-white text-[10px] flex items-center justify-center rounded-full">
+                    {cartItemCount}
+                  </span>
+                )}
+              </button>
+            )}
 
-            {/* Mobile dark mode toggle */}
             {showDarkModeToggle && (
               <button
+                type="button"
+                className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 transition"
                 onClick={toggleDarkMode}
-                className="mt-4 w-full flex items-center gap-2 px-3 py-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                aria-label="Cambiar tema"
               >
-                <span className="material-icons-outlined dark:hidden">
+                <span className="material-icons-outlined block dark:hidden">
                   dark_mode
                 </span>
                 <span className="material-icons-outlined hidden dark:block">
                   light_mode
                 </span>
-                <span className="dark:hidden">Modo oscuro</span>
-                <span className="hidden dark:block">Modo claro</span>
               </button>
             )}
           </div>
-        )}
+        </div>
       </div>
     </header>
   );

@@ -9,6 +9,8 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@tailwindcss/forms": "^0.5.11",
+    "@tailwindcss/typography": "^0.5.20",
     "lucide-react": "^0.563.0",
     "material-icons": "^1.13.14",
     "next": "16.1.1",

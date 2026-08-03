@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
                     <div className="space-y-6">
                         <span className="inline-block px-4 py-1 rounded-full bg-gradient-to-r from-primary to-secondary text-white text-xs font-bold tracking-wider uppercase">Todo en un solo lugar</span>
                         <h1 className="text-4xl md:text-6xl font-display font-bold leading-tight">
-                            Papelería, Fotos <br />
+                            Papelería y mejoras <br />
                             <span className="text-primary">&amp; Dulces Momentos</span>
                         </h1>
                         <p className="text-lg text-slate-600 dark:text-slate-300 max-w-lg">

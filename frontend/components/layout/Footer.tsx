@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import Logo from "../ui/Logo";
 
 export interface FooterLink {
@@ -55,7 +56,7 @@ const Footer: React.FC<FooterProps> = ({
   contactInfo,
   businessHours = [],
   showNewsletter = false,
-  copyrightText = "© 2024 Fotovariedades la 68. Todos los derechos reservados.",
+  copyrightText = "© 2023 Fotovariedades la 68. Todos los derechos reservados.",
   className = "",
 }) => {
   // Social media icons
@@ -186,187 +187,145 @@ const Footer: React.FC<FooterProps> = ({
   return (
     <footer
       className={`
-        bg-gray-900 dark:bg-gray-950
-        text-gray-300
-        pt-12 pb-6
+        bg-slate-900 dark:bg-slate-900
+        text-slate-300
+        py-16
+        border-t border-slate-800
         ${className}
       `}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          {/* Brand section */}
-          <div className="lg:col-span-1 space-y-4">
-            <Logo variant="white" size="md" />
-            <p className="text-sm text-gray-400 leading-relaxed">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+          <div className="space-y-4">
+            <h3 className="text-white font-bold text-lg uppercase tracking-wider">
+              Empresa
+            </h3>
+            <p className="text-sm leading-relaxed">
               Tu solución integral en papelería, fotografía y dulces. Calidad y
-              servicio amable desde siempre.
+              servicio amable en el corazón de la comunidad.
             </p>
-
-            {/* Social links */}
-            {socialLinks.length > 0 && (
-              <div className="flex items-center gap-3 pt-2">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.platform}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-white transition-colors p-2 rounded-full hover:bg-gray-800"
-                    aria-label={social.platform}
-                  >
-                    {socialIcons[social.platform]}
-                  </a>
-                ))}
-              </div>
-            )}
+            <div className="flex items-start gap-2 text-sm">
+              <span className="material-icons-outlined text-primary">
+                location_on
+              </span>
+              <span>Calle 68, Local Principal</span>
+            </div>
           </div>
 
-          {/* Link sections */}
-          {sections.map((section) => (
-            <div key={section.title}>
-              <h4 className="text-white font-semibold text-lg mb-4">
-                {section.title}
-              </h4>
-              <ul className="space-y-2">
-                {section.links.map((link) => (
-                  <li key={link.href}>
-                    <a
-                      href={link.href}
-                      className="text-sm text-gray-400 hover:text-white transition-colors"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div className="space-y-4">
+            <h3 className="text-white font-bold text-lg uppercase tracking-wider">
+              Categorías
+            </h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link href="/#stationery" className="hover:text-primary transition-colors">
+                  Papelería
+                </Link>
+              </li>
+              <li>
+                <Link href="/#services" className="hover:text-primary transition-colors">
+                  Fotografía
+                </Link>
+              </li>
+              <li>
+                <Link href="/#sweets" className="hover:text-primary transition-colors">
+                  Dulcería
+                </Link>
+              </li>
+              <li>
+                <Link href="/#home" className="hover:text-primary transition-colors">
+                  Regalos
+                </Link>
+              </li>
+            </ul>
+          </div>
 
-          {/* Contact section */}
-          {contactInfo && (
-            <div>
-              <h4 className="text-white font-semibold text-lg mb-4">
-                Contacto
-              </h4>
-              <ul className="space-y-3">
-                {contactInfo.phone && (
-                  <li>
-                    <a
-                      href={`tel:${contactInfo.phone.replace(/\s/g, "")}`}
-                      className="flex items-center gap-3 text-sm text-gray-400 hover:text-white transition-colors group"
-                    >
-                      <span className="bg-gray-800 group-hover:bg-primary/20 p-2 rounded-lg transition-colors">
-                        <span className="material-icons-outlined text-sm">
-                          phone
-                        </span>
-                      </span>
-                      {contactInfo.phone}
-                    </a>
-                  </li>
-                )}
-                {contactInfo.whatsapp && (
-                  <li>
-                    <a
-                      href={`https://wa.me/${contactInfo.whatsapp.replace(/\D/g, "")}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-3 text-sm text-gray-400 hover:text-green-400 transition-colors group"
-                    >
-                      <span className="bg-gray-800 group-hover:bg-green-500/20 p-2 rounded-lg transition-colors">
-                        {socialIcons.whatsapp}
-                      </span>
-                      {contactInfo.whatsapp}
-                    </a>
-                  </li>
-                )}
-                {contactInfo.email && (
-                  <li>
-                    <a
-                      href={`mailto:${contactInfo.email}`}
-                      className="flex items-center gap-3 text-sm text-gray-400 hover:text-white transition-colors group"
-                    >
-                      <span className="bg-gray-800 group-hover:bg-primary/20 p-2 rounded-lg transition-colors">
-                        <span className="material-icons-outlined text-sm">
-                          email
-                        </span>
-                      </span>
-                      <span className="truncate">{contactInfo.email}</span>
-                    </a>
-                  </li>
-                )}
-                {contactInfo.address && (
-                  <li className="flex items-start gap-3 text-sm text-gray-400">
-                    <span className="bg-gray-800 p-2 rounded-lg shrink-0">
-                      <span className="material-icons-outlined text-sm">
-                        location_on
-                      </span>
-                    </span>
-                    <span>{contactInfo.address}</span>
-                  </li>
-                )}
-              </ul>
-            </div>
-          )}
+          <div className="space-y-4">
+            <h3 className="text-white font-bold text-lg uppercase tracking-wider">
+              Atención al Cliente
+            </h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link href="/#home" className="hover:text-primary transition-colors">
+                  Preguntas Frecuentes
+                </Link>
+              </li>
+              <li>
+                <Link href="/#home" className="hover:text-primary transition-colors">
+                  Contacto
+                </Link>
+              </li>
+              <li>
+                <Link href="/#home" className="hover:text-primary transition-colors">
+                  Envíos y Entregas
+                </Link>
+              </li>
+              <li>
+                <Link href="/#home" className="hover:text-primary transition-colors">
+                  Términos y Condiciones
+                </Link>
+              </li>
+            </ul>
+          </div>
 
-          {/* Business hours */}
-          {businessHours.length > 0 && (
-            <div>
-              <h4 className="text-white font-semibold text-lg mb-4">
-                Horarios
-              </h4>
-              <ul className="space-y-2">
-                {businessHours.map((schedule, index) => (
-                  <li
-                    key={index}
-                    className="flex justify-between text-sm gap-4"
-                  >
-                    <span className="text-gray-400">{schedule.days}</span>
-                    <span
-                      className={
-                        schedule.isClosed
-                          ? "text-primary font-medium"
-                          : "text-white"
-                      }
-                    >
-                      {schedule.hours}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+          <div className="space-y-4">
+            <h3 className="text-white font-bold text-lg uppercase tracking-wider">
+              Redes Sociales
+            </h3>
+            <div className="flex gap-4">
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary transition-colors"
+                aria-label="Facebook"
+              >
+                <span className="material-icons-outlined">facebook</span>
+              </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary transition-colors"
+                aria-label="Instagram"
+              >
+                <span className="material-icons-outlined">camera_alt</span>
+              </a>
+              <a
+                href="https://wa.me/573207277232"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-green-600 transition-colors"
+                aria-label="WhatsApp"
+              >
+                <span className="material-icons-outlined">whatsapp</span>
+              </a>
             </div>
-          )}
+
+            <div className="pt-4 space-y-2">
+              <div className="flex items-center gap-2 text-sm">
+                <span className="material-icons-outlined text-primary text-sm">
+                  call
+                </span>
+                <span>320 727 72 32</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm">
+                <span className="material-icons-outlined text-primary text-sm">
+                  email
+                </span>
+                <span className="truncate">fotovariedadesla68@gmail.com</span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Newsletter */}
-        {showNewsletter && (
-          <div className="border-t border-gray-800 pt-8 mb-8">
-            <div className="max-w-md">
-              <h4 className="text-white font-semibold mb-2">
-                Suscríbete a nuestro boletín
-              </h4>
-              <p className="text-sm text-gray-400 mb-4">
-                Recibe ofertas exclusivas y novedades directamente en tu correo.
-              </p>
-              <form className="flex gap-2">
-                <input
-                  type="email"
-                  placeholder="Tu correo electrónico"
-                  className="flex-1 px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
-                />
-                <button
-                  type="submit"
-                  className="px-4 py-2 bg-primary text-white font-medium rounded-lg hover:bg-primary/90 transition-colors"
-                >
-                  Suscribirse
-                </button>
-              </form>
-            </div>
+        <div className="border-t border-slate-800 pt-8 flex flex-col items-center gap-6">
+          <div className="w-48">
+            <Logo variant="white" size="md" className="justify-center" />
           </div>
-        )}
-
-        {/* Copyright bar */}
-        <div className="border-t border-gray-800 pt-6 text-center">
-          <p className="text-sm text-gray-500">{copyrightText}</p>
+          <p className="text-xs text-slate-500 text-center">
+            {copyrightText} Diseñado para tu comodidad.
+          </p>
         </div>
       </div>
     </footer>
