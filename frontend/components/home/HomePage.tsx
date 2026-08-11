@@ -1,10 +1,10 @@
 import React from "react";
-import Header from "@/components/layout/Header";
 import Hero from "./Hero";
 import Services from "./Services";
 import FeaturedStationery from "./FeaturedStationery";
 import Sweets from "./Sweets";
-import Footer from "./Footer";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 
 const HomePage: React.FC = () => {
   return (

@@ -1,12 +1,12 @@
 import React from 'react';
 import TopBar from './TopBar';
-import Header from './Header';
 import Breadcrumbs from './Breadcrumbs';
 import Sidebar from './Sidebar';
 import ProductGrid from './ProductGrid';
 import Pagination from './Pagination';
 import WhatsAppButton from './WhatsAppButton';
-import Footer from './Footer';
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 
 const StationeryPage: React.FC = () => {
     return (

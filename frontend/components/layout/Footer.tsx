@@ -16,12 +16,12 @@ export interface FooterSection {
 
 export interface SocialLink {
   platform:
-    | "facebook"
-    | "instagram"
-    | "twitter"
-    | "whatsapp"
-    | "youtube"
-    | "tiktok";
+  | "facebook"
+  | "instagram"
+  | "twitter"
+  | "whatsapp"
+  | "youtube"
+  | "tiktok";
   href: string;
 }
 
@@ -187,29 +187,17 @@ const Footer: React.FC<FooterProps> = ({
   return (
     <footer
       className={`
-        bg-slate-900 dark:bg-slate-900
-        text-slate-300
-        py-16
-        border-t border-slate-800
+        bg-gray-900 text-white pt-12 pb-6
         ${className}
       `}
     >
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-          <div className="space-y-4">
-            <h3 className="text-white font-bold text-lg uppercase tracking-wider">
-              Empresa
-            </h3>
-            <p className="text-sm leading-relaxed">
-              Tu solución integral en papelería, fotografía y dulces. Calidad y
-              servicio amable en el corazón de la comunidad.
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          <div className="col-span-1 md:col-span-1">
+            <span className="text-2xl font-bold font-display logo-gradient mb-4 block">FotoVariedades la 68</span>
+            <p className="text-gray-400 text-sm">
+              Tu tienda de confianza para útiles escolares, fotografía, documentos y los mejores dulces.
             </p>
-            <div className="flex items-start gap-2 text-sm">
-              <span className="material-icons-outlined text-primary">
-                location_on
-              </span>
-              <span>Calle 68, Local Principal</span>
-            </div>
           </div>
 
           <div className="space-y-4">
@@ -277,28 +265,28 @@ const Footer: React.FC<FooterProps> = ({
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary transition-colors"
+                className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-500 transition-colors text-white"
                 aria-label="Facebook"
               >
-                <span className="material-icons-outlined">facebook</span>
+                {socialIcons.facebook}
               </a>
               <a
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary transition-colors"
+                className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary transition-colors text-white"
                 aria-label="Instagram"
               >
-                <span className="material-icons-outlined">camera_alt</span>
+                {socialIcons.instagram}
               </a>
               <a
                 href="https://wa.me/573207277232"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-green-600 transition-colors"
+                className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-green-600 transition-colors text-white"
                 aria-label="WhatsApp"
               >
-                <span className="material-icons-outlined">whatsapp</span>
+                {socialIcons.whatsapp}
               </a>
             </div>
 
@@ -320,9 +308,6 @@ const Footer: React.FC<FooterProps> = ({
         </div>
 
         <div className="border-t border-slate-800 pt-8 flex flex-col items-center gap-6">
-          <div className="w-48">
-            <Logo variant="white" size="md" className="justify-center" />
-          </div>
           <p className="text-xs text-slate-500 text-center">
             {copyrightText} Diseñado para tu comodidad.
           </p>
